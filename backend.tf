@@ -1,7 +1,7 @@
 #  vim:ts=2:sts=2:sw=2:et
 #
 #  Author: Hari Sekhon
-#  Date: [% DATE # 2020-08-21 10:23:27 +0100 (Fri, 21 Aug 2020) %]
+#  Date: [% DATE  # 2020-08-21 10:23:27 +0100 (Fri, 21 Aug 2020) %]
 #
 #  [% URL %]
 #
