@@ -20,6 +20,50 @@ Terraform templates for AWS / GCP / Azure.
 Forked from the [Templates](https://github.com/HariSekhon/Templates) repo for which this is now a submodule.
 
 
+### New
+
+`new.pl` can instantiate these templates as new date-timestamped files, autopopulating the date, vim tags, GitHub URL and other headers and drops you in to your `$EDITOR` of choice (eg. `vim`).
+
+You can give an exact filename like `provider.tf` or `backend.tf` to instantiate that exact template, or any filename ending in `.tfvars` will instantitate some common terraform variables such as `project`, `region`, `vpc_name` etc...  otherwise any filename ending in `tf` will give you a blank terraform template.
+
+Examples:
+
+```
+new provider.tf
+```
+
+```
+new backend.tf
+```
+
+`new.pl` can be found in the [DevOps Perl tools](https://github.com/HariSekhon/DevOps-Perl-tools) repo.
+
+```alias new=new.pl```
+
+(done automatically in the [DevOps Bash tools](https://github.com/HariSekhon/DevOps-Bash-tools) repo `.bash.d/`)
+
+
+#### New Terraform
+
+Instantly creates and opens all standard files for a Terraform deployment in your `$EDITOR` of choice:
+
+- [provider.tf](https://github.com/HariSekhon/Templates/blob/master/provider.tf)
+- [backend.tf](https://github.com/HariSekhon/Templates/blob/master/backend.tf)
+- [variables.tf](https://github.com/HariSekhon/Templates/blob/master/variables.tf)
+- [terraform.tfvars](https://github.com/HariSekhon/Templates/blob/master/terraform.tfvars)
+- `main.tf`
+
+all heavily commented to get a new Terraform environment up and running quickly - with links to things like AWS / GCP regions, Terraform backend providers, state locking etc.
+
+```
+new terraform
+```
+or shorter
+```
+new tf
+```
+
+
 ### See Also:
 
 * [Kubernetes templates](https://github.com/HariSekhon/Kubernetes-templates) - Kubernetes YAML templates - Best Practices, Tips & Tricks are baked right into the templates for future deployments
