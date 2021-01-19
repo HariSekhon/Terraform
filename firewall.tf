@@ -26,7 +26,8 @@ resource "google_compute_network" "default" {
 #  name    = "http"
 #  # use self_link instead of name as it's a unique reference
 #  network = google_compute_network.default.self_link
-#  network = module.vpc.default.self_link
+#  # must use output value 'vpc_network' from module 'vpc' (eg. in module it declares 'output "vpc_network" { value = google_compute_network.vpc_network.self_link }' )
+#  network = module.vpc.vpc_network
 #
 #  allow {
 #    protocol = "tcp"
