@@ -18,7 +18,7 @@ resource "google_compute_network" "default" {
   name = "default"
 }
 
-resource "google_compute_firewall" "default" {
+resource "google_compute_firewall" "IAP" {
   name    = "IAP"
   network = google_compute_network.default.name
 
