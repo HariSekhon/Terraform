@@ -12,12 +12,29 @@
 #  [% LINKEDIN %]
 #
 
+# ============================================================================ #
+#                            G C P   F i r e w a l l
+# ============================================================================ #
+
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall
 
 resource "google_compute_network" "default" {
   name = "default"
 }
 
+#resource "google_compute_firewall" "http" {
+#  name    = "http"
+#  network = google_compute_network.default.name
+#
+#  allow {
+#    protocol = "tcp"
+#    ports    = ["80", "443"]
+#  }
+#
+#  source_ranges = ["0.0.0.0/0"]
+#}
+
+# GCP IAP
 resource "google_compute_firewall" "IAP" {
   name    = "IAP"
   network = google_compute_network.default.name
