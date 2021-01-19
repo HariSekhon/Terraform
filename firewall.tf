@@ -24,7 +24,9 @@ resource "google_compute_network" "default" {
 
 #resource "google_compute_firewall" "http" {
 #  name    = "http"
-#  network = google_compute_network.default.name
+#  # use self_link instead of name as it's a unique reference
+#  network = google_compute_network.default.self_link
+#  network = module.vpc.default.self_link
 #
 #  allow {
 #    protocol = "tcp"
@@ -35,9 +37,9 @@ resource "google_compute_network" "default" {
 #}
 
 # GCP IAP
-resource "google_compute_firewall" "IAP" {
-  name    = "IAP"
-  network = google_compute_network.default.name
+resource "google_compute_firewall" "iap" {
+  name    = "iap"
+  network = google_compute_network.default.self_link
 
   allow {
     protocol = "tcp"
