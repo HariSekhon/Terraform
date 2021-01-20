@@ -40,7 +40,9 @@ resource "google_compute_network" "default" {
 # ==============================
 # GCP IAP - Identity Aware Proxy
 #
-# - for allowing 'gcloud compute ssh <instance>' without public IPs
+# for allowing 'gcloud compute ssh <instance>' without public IPs
+#
+#   https://cloud.google.com/iap/docs/using-tcp-forwarding
 #
 resource "google_compute_firewall" "iap" {
   name    = "iap"
