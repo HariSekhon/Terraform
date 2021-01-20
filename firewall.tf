@@ -45,6 +45,7 @@ resource "google_compute_firewall" "iap" {
   allow {
     protocol = "tcp"
     ports    = ["22"]
+    #ports    = ["22", "3389"]  # SSH + RDP
   }
 
   source_ranges = ["35.235.240.0/20"]
