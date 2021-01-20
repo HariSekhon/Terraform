@@ -18,16 +18,26 @@
 
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall
 
-resource "google_compute_network" "default" {
-  name = "default"
-}
+# don't Terraform modify GKE auto-created firewall rules:
+#
+#   https://cloud.google.com/kubernetes-engine/docs/concepts/firewall-rules
+
+
+# although this is in the docs I don't consider this good practice, something as simple as a typo in the description could force a replacement!
+#resource "google_compute_network" "default" {
+#  name = "default"
+#  # needs to avoid replacement
+#  description = "Default network for the project"
+#}
 
 #resource "google_compute_firewall" "http" {
 #  name    = "http"
 #  # use self_link instead of name as it's a unique reference
-#  network = google_compute_network.default.self_link
+#  #network = google_compute_network.default.self_link
+#  # avoid creating network just to reference self_link, name it explicitly instead
+#  network = "default"
 #  # must use output value 'vpc_network' from module 'vpc' (eg. in module it declares 'output "vpc_network" { value = google_compute_network.vpc_network.self_link }' )
-#  network = module.vpc.vpc_network
+#  #network = module.vpc.vpc_network
 #
 #  allow {
 #    protocol = "tcp"
@@ -40,13 +50,12 @@ resource "google_compute_network" "default" {
 # ==============================
 # GCP IAP - Identity Aware Proxy
 #
-# for allowing 'gcloud compute ssh <instance>' without public IPs
-#
 #   https://cloud.google.com/iap/docs/using-tcp-forwarding
 #
 resource "google_compute_firewall" "iap" {
-  name    = "iap"
-  network = google_compute_network.default.self_link
+  name        = "iap"
+  description = "allows 'gcloud compute ssh <instance>' without public IPs"
+  network     = google_compute_network.default.self_link
 
   allow {
     protocol = "tcp"
