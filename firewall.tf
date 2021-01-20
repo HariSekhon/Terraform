@@ -37,7 +37,11 @@ resource "google_compute_network" "default" {
 #  source_ranges = ["0.0.0.0/0"]
 #}
 
-# GCP IAP
+# ==============================
+# GCP IAP - Identity Aware Proxy
+#
+# - for allowing 'gcloud compute ssh <instance>' without public IPs
+#
 resource "google_compute_firewall" "iap" {
   name    = "iap"
   network = google_compute_network.default.self_link
