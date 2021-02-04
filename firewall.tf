@@ -30,6 +30,26 @@
 #  description = "Default network for the project"
 #}
 
+# ============================================================================ #
+#         Firewall rules applied to both default and custom vpc networks
+# ============================================================================ #
+
+#module "firewall" {
+#  source  "./firewall"
+#  # needs string, not self_link so basename to get the network name as a string
+#  network = basename(module.vpc.vpc_network)
+#}
+#
+#module "firewall-default-network" {
+#  source  = "./firewall"
+#  network = "default"
+#}
+
+
+# ============================================================================ #
+#                  Firewall Rules only applying to one network
+# ============================================================================ #
+
 #resource "google_compute_firewall" "http" {
 #  name    = "http"
 #  # use self_link instead of name as it's a unique reference
