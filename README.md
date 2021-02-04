@@ -9,7 +9,7 @@ Terraform Templates
 [![Repo on BitBucket](https://img.shields.io/badge/repo-BitBucket-0052CC?logo=bitbucket)](https://bitbucket.org/HariSekhon/Terraform-templates)
 
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/HariSekhon/Terraform-templates?logo=github)](https://github.com/HariSekhon/Terraform-templates/commits/master)
-[![Lines of Config](https://img.shields.io/badge/lines%20of%20config-400-lightgrey?logo=codecademy)](https://github.com/HariSekhon/Terraform-templates)
+[![Lines of Config](https://img.shields.io/badge/lines%20of%20config-700-lightgrey?logo=codecademy)](https://github.com/HariSekhon/Terraform-templates)
 [![GitHub stars](https://img.shields.io/github/stars/HariSekhon/Terraform-templates?logo=github)](https://github.com/HariSekhon/Terraform-templates//stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/HariSekhon/Terraform-templates?logo=github)](https://github.com/HariSekhon/Terraform-templates/network)
 
