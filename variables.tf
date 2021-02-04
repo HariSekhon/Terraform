@@ -43,7 +43,7 @@ variable "node_count" {
 }
 
 variable "private_cidrs" {
-  type = list
+  type = list(any)
   #default = [
   #  "10.0.0.0/8",
   #  "172.16.0.0/16",
