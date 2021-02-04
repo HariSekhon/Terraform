@@ -34,6 +34,8 @@
 #         Firewall rules applied to both default and custom vpc networks
 # ============================================================================ #
 
+# adjacent Firewall module contains many common firewall rules such as Cloudflare Proxied HTTP(s), SSH, ICMP, IAP
+
 #module "firewall" {
 #  source  "./firewall"
 #  # needs string, not self_link so basename to get the network name as a string
