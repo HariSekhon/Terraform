@@ -43,5 +43,5 @@ locals {
 }
 
 output "atlassian_cidr_ip4" {
-  value = "${local.atlassian_cidr_ipv4}"
+  value = local.atlassian_cidr_ipv4
 }
