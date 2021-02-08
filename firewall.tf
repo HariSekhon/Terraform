@@ -54,11 +54,14 @@
 
 #resource "google_compute_firewall" "http" {
 #  name    = "http"
-#  # use self_link instead of name as it's a unique reference
-#  #network = google_compute_network.default.self_link
+#
 #  # avoid creating network just to reference self_link, name it explicitly instead
 #  network = "default"
-#  # must use output value 'vpc_network' from module 'vpc' (eg. in module it declares 'output "vpc_network" { value = google_compute_network.vpc_network.self_link }' )
+#
+#  # use self_link instead of name as it's a unique reference
+#  #network = google_compute_network.default.self_link
+#
+#  # if network is created by module (eg. 'vpc_network'), the module must specify an output value for us to reference ( 'output "vpc_network" { value = google_compute_network.vpc_network.self_link }' )
 #  #network = module.vpc.vpc_network
 #
 #  allow {
@@ -68,22 +71,3 @@
 #
 #  source_ranges = ["0.0.0.0/0"]
 #}
-
-# ==============================
-# GCP IAP - Identity Aware Proxy
-#
-#   https://cloud.google.com/iap/docs/using-tcp-forwarding
-#
-resource "google_compute_firewall" "iap" {
-  name        = "iap"
-  description = "allows 'gcloud compute ssh <instance>' without public IPs"
-  network     = google_compute_network.default.self_link
-
-  allow {
-    protocol = "tcp"
-    ports    = ["22"]
-    #ports    = ["22", "3389"]  # SSH + RDP
-  }
-
-  source_ranges = ["35.235.240.0/20"]
-}
