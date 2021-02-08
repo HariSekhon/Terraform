@@ -54,6 +54,35 @@ locals {
 
 
 # ============================================================================ #
+#             L o a d   B a l a n c e r   H e a l t h   C h e c k s
+# ============================================================================ #
+
+# https://cloud.google.com/load-balancing/docs/health-checks
+
+resource "google_compute_firewall" "load-balancer-health-checks" {
+  name        = "load-balancer-health-checks-${var.network}"
+  network     = var.network
+  description = "Load Balancer health checks source addresses"
+
+  allow {
+    protocol = "tcp"
+    # might not be just HTTP(S), if you're sure it is then you can enable this line
+    #ports    = ["80", "443"]
+  }
+
+  source_ranges = [
+    # Load Balancer addresses - HTTP(S) / SSL Proxy / Internal TCP/UDP/HTTP(S)
+    "35.191.0.0/16",
+    "130.211.0.0/22"
+    # Network Load Balancer addresses
+    #"35.191.0.0/16", # in both lists
+    "209.85.152.0/22",
+    "209.85.204.0/22"
+  ]
+}
+
+
+# ============================================================================ #
 #                                    H T T P
 # ============================================================================ #
 
