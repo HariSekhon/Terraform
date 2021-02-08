@@ -117,6 +117,10 @@ resource "google_compute_firewall" "http-cloudflare" {
     "197.234.240.0/22",
     "198.41.128.0/17"
   ]
+  target_tags = [
+    "http-server",
+    "https-server"
+  ]
 }
 
 
@@ -131,6 +135,10 @@ resource "google_compute_firewall" "http-office" {
   }
 
   source_ranges = local.london_office_IPs
+  target_tags = [
+    "http-server",
+    "https-server"
+  ]
 }
 
 
@@ -145,6 +153,10 @@ resource "google_compute_firewall" "http-VPN" {
   }
 
   source_ranges = local.VPN_external_IPs
+  target_tags = [
+    "http-server",
+    "https-server"
+  ]
 }
 
 
@@ -164,6 +176,10 @@ resource "google_compute_firewall" "http-rapid7" {
     "35.156.166.245",
     "172.104.153.232"
   ]
+  target_tags = [
+    "http-server",
+    "https-server"
+  ]
 }
 
 
@@ -180,6 +196,10 @@ resource "google_compute_firewall" "http-webtrends" {
   source_ranges = [
     "62.31.105.234",
     "213.123.137.249"
+  ]
+  target_tags = [
+    "http-server",
+    "https-server"
   ]
 }
 
