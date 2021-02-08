@@ -73,7 +73,7 @@ resource "google_compute_firewall" "load-balancer-health-checks" {
   source_ranges = [
     # Load Balancer addresses - HTTP(S) / SSL Proxy / Internal TCP/UDP/HTTP(S)
     "35.191.0.0/16",
-    "130.211.0.0/22"
+    "130.211.0.0/22",
     # Network Load Balancer addresses
     #"35.191.0.0/16", # in both lists
     "209.85.152.0/22",
