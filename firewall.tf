@@ -13,7 +13,7 @@
 #
 
 # ============================================================================ #
-#                            G C P   F i r e w a l l
+#                                F i r e w a l l
 # ============================================================================ #
 
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall
