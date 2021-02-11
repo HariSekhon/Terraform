@@ -15,14 +15,18 @@
 # XXX: set these in terraform.tfvars
 
 variable "project" {
+  type = string
   #default = "myproject-123456"
 }
 
 variable "vpc_name" {
+  type = string
   #default = "default"
 }
 
 variable "region" {
+  type = string
+
   # AWS
   #
   #   https://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region
