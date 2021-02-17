@@ -1,6 +1,7 @@
 module "jx" {
   source = "jenkins-x/jx/google"
 
+  # XXX: Edit
   gcp_project = "<my-gcp-project-id>"
 }
 
