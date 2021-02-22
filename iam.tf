@@ -35,11 +35,11 @@ resource "google_project_iam_member" "project-editors" {
 resource "google_project_iam_member" "cloudsql-viewer" {
   role = "roles/cloudsql.viewer"
   # XXX: edit this
-  member = "serviceAccount:cloud-function-sql-backup@<myproject>.iam.gserviceaccount.com"
+  member = "serviceAccount:cloud-function-sql-backup@<MYPROJECT>.iam.gserviceaccount.com"
 }
 
 resource "google_project_iam_member" "cloudsql-client" {
   role = "roles/cloudsql.client"
   # XXX: edit this
-  member = "serviceAccount:cloud-function-sql-backup@<myproject>.iam.gserviceaccount.com"
+  member = "serviceAccount:cloud-function-sql-backup@<MYPROJECT>.iam.gserviceaccount.com"
 }
