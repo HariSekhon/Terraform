@@ -33,7 +33,7 @@ locals {
   #
   #   https://documentation.solarwinds.com/en/Success_Center/pingdom/content/topics/pingdom-probe-servers-ip-addresses.htm
   #
-  # TODO: if I could find a JSON API endpoint exposing these it might be better to query it and inject the IPs manually, similar to atlassian_cidr_ipv4.tf
+  # TODO: if I could find a JSON API endpoint exposing these it might be better to query it and inject the IPs dynamically, similar to atlassian_cidr_ipv4.tf
   pingdom_IPs = <<EOT
 5.172.196.188
 13.232.220.164
