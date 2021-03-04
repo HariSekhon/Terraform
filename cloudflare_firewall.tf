@@ -16,7 +16,9 @@
 #               C l o u d f l a r e   F i r e w a l l   R u l e s
 # ============================================================================ #
 
-# Permit Pingdom probe addresses to access private sites
+# https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/firewall_rule
+
+# Permit Pingdom health check probe addresses to access private sites to test them
 
 locals {
 
