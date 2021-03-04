@@ -17,7 +17,7 @@ terraform {
   #
   #		https://cloud.google.com/storage/docs/object-versioning
   #
-  # gsutil versioning set on gs://$GOOGLE_PROJECT_ID-tf-state
+  #   gsutil versioning set on gs://$GOOGLE_PROJECT_ID-productiontf-state
   backend "gcs" {
     bucket = "NAME-production-tf-state"   # XXX: EDIT
     prefix = "terraform/state/production" # <prefix>/<name>.tfstate
