@@ -19,8 +19,8 @@ terraform {
   #
   # gsutil versioning set on gs://$GOOGLE_PROJECT_ID-tf-state
   backend "gcs" {
-    bucket = "NAME-prod-tf-state"   # XXX: EDIT
-    prefix = "terraform/state/prod" # <prefix>/<name>.tfstate
+    bucket = "NAME-production-tf-state"   # XXX: EDIT
+    prefix = "terraform/state/production" # <prefix>/<name>.tfstate
   }
 
   # XXX: remember to enable Bucket Versioning on this S3 bucket for state recovery:
