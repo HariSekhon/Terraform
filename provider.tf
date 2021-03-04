@@ -12,28 +12,38 @@
 #  [% LINKEDIN %]
 #
 
-# terraform 0.12+ doesn't use this surrounding block
-#terraform {
-# XXX: delete as necessary
-required_providers {
-  # 0.13+
-  # https://registry.terraform.io/providers/hashicorp/aws/latest/docs
-  aws = {
-    source  = "hashicorp/aws"
-    version = "~> 3.7.0"
+terraform {
+
+  # XXX: delete as necessary
+  required_providers {
+
+    # 0.13+
+    # https://registry.terraform.io/providers/hashicorp/aws/latest/docs
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.7.0"
+    }
+
+    # https://www.terraform.io/docs/providers/google/index.html
+    google = {
+      source  = "hashicorp/google"
+      version = "~> 3.40.0"
+    }
+
+    # https://www.terraform.io/docs/providers/azurerm/index.html
+    azure = {
+      source  = "hashicorp/azurerm"
+      version = "~> 2.28.0"
+    }
+
+    cloudflare = {
+      source = "cloudflare/cloudflare"
+    }
   }
-  # https://www.terraform.io/docs/providers/google/index.html
-  google = {
-    source  = "hashicorp/google"
-    version = "~> 3.40.0"
-  }
-  # https://www.terraform.io/docs/providers/azurerm/index.html
-  azure = {
-    source  = "hashicorp/azurerm"
-    version = "~> 2.28.0"
-  }
+
+  required_version = ">= 0.13"
+
 }
-#}
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs
 provider "aws" {
@@ -58,6 +68,12 @@ provider "azurerm" {
   # whilst the `version` attribute is optional, we recommend pinning to a given version of the Provider
   version = "~> 2.28.0"
   features {}
+}
+
+# https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs
+provider "cloudflare" {
+  email   = var.cloudflare_email    # set these in terraform.tfvars and don't commit it
+  api_key = var.cloudflare_api_key  # requires global api key, api tokens don't work
 }
 
 # https://registry.terraform.io/providers/hashicorp/kubernetes/latest
