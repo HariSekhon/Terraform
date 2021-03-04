@@ -72,8 +72,8 @@ provider "azurerm" {
 
 # https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs
 provider "cloudflare" {
-  email   = var.cloudflare_email    # set these in terraform.tfvars and don't commit it
-  api_key = var.cloudflare_api_key  # requires global api key, api tokens don't work
+  email   = var.cloudflare_email   # set these in terraform.tfvars and don't commit it
+  api_key = var.cloudflare_api_key # requires global api key, api tokens don't work
 }
 
 # https://registry.terraform.io/providers/hashicorp/kubernetes/latest
