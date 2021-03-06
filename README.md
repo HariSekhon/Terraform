@@ -45,6 +45,14 @@ new backend.tf
 
 #### New Terraform
 
+```
+new terraform
+```
+or shorter
+```
+new tf
+```
+
 Instantly creates and opens all standard files for a Terraform deployment in your `$EDITOR` of choice:
 
 - [provider.tf](https://github.com/HariSekhon/Terraform-templates/blob/master/provider.tf)
@@ -54,14 +62,6 @@ Instantly creates and opens all standard files for a Terraform deployment in you
 - [main.tf](https://github.com/HariSekhon/Terraform-templates/blob/master/main.tf)
 
 all heavily commented to get a new Terraform environment up and running quickly - with links to things like AWS / GCP regions, Terraform backend providers, state locking etc.
-
-```
-new terraform
-```
-or shorter
-```
-new tf
-```
 
 
 ### See Also:
