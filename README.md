@@ -43,7 +43,7 @@ new backend.tf
 (done automatically in the [DevOps Bash tools](https://github.com/HariSekhon/DevOps-Bash-tools) repo `.bash.d/`)
 
 
-#### New Terraform
+#### New Terraform Structure
 
 ```
 new terraform
