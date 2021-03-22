@@ -76,6 +76,8 @@ provider "cloudflare" {
   api_key = var.cloudflare_api_key # requires global api key, api tokens don't work
 }
 
+provider "http" {}
+
 # https://registry.terraform.io/providers/hashicorp/kubernetes/latest
 #provider "kubernetes" {}
 
