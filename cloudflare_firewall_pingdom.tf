@@ -16,19 +16,13 @@
 #               C l o u d f l a r e   F i r e w a l l   R u l e s
 # ============================================================================ #
 
+# Permit Pingdom health check probe addresses through Cloudflare Firewall to access private sites to test them
+
 # https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/firewall_rule
 
-# Permit Pingdom health check probe addresses to access private sites to test them
+# requires cloudflare_locals.tf to share the zone id variable between files
 
 locals {
-
-  # obtained from the Cloudflare API:
-  #
-  #   cloudflare_zones.sh
-  #
-  # XXX: Edit
-  zone_id = "..."
-
   # source IPs copied from:
   #
   #   https://my.pingdom.com/app/probes/ipv4
