@@ -43,7 +43,15 @@ new backend.tf
 (done automatically in the [DevOps Bash tools](https://github.com/HariSekhon/DevOps-Bash-tools) repo `.bash.d/`)
 
 
-#### New Terraform
+#### New Terraform Structure
+
+```
+new terraform
+```
+or shorter
+```
+new tf
+```
 
 Instantly creates and opens all standard files for a Terraform deployment in your `$EDITOR` of choice:
 
@@ -54,14 +62,6 @@ Instantly creates and opens all standard files for a Terraform deployment in you
 - [main.tf](https://github.com/HariSekhon/Terraform-templates/blob/master/main.tf)
 
 all heavily commented to get a new Terraform environment up and running quickly - with links to things like AWS / GCP regions, Terraform backend providers, state locking etc.
-
-```
-new terraform
-```
-or shorter
-```
-new tf
-```
 
 
 ### See Also:
