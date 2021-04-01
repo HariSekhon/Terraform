@@ -18,8 +18,8 @@
 
                                 # XXX: edit
 resource "google_storage_bucket" "mybucket" {
-                                                   # XXX: edit
-  name                        = "${var.project_name}-mybucket"
+                                                 # XXX: edit
+  name                        = "${var.project_id}-mybucket"
   location                    = "EU"
   uniform_bucket_level_access = true # XXX: GCS defaults to fine-grained security otherwise, which is more likely to have a human misconfiguration data leak
 }
