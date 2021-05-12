@@ -19,4 +19,4 @@ default:
 
 .PHONY: wc
 wc:
-	wc -l *.tf */*tf *.tfvars
+	find . -name '*.tf' -o -iname '*.tfvars' | xargs wc -l
