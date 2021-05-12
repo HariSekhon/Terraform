@@ -17,8 +17,8 @@
 # ============================================================================ #
 
 locals {
-  # ChargeBee's NAT gateways - one of the few services without an online API
-  #                            to fetch these from so have to be hardcoded
+  # ChargeBee's NAT gateways - one of the few services without any online IP source documentation
+  #                            or even an online API to fetch these from so have to be hardcoded
   chargebee_IPs = [
     "18.210.240.138",
     "18.232.249.243",
