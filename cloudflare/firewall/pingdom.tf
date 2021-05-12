@@ -37,13 +37,13 @@ locals {
 }
 
 resource "cloudflare_filter" "pingdom" {
-  zone_id     = local.cloudflare_zone_id
+  zone_id     = var.zone_id
   description = "Pingdom IPs"
   expression  = "(ip.src in {${local.pingdom_IPs}})"
 }
 
 resource "cloudflare_firewall_rule" "pingdom" {
-  zone_id     = local.cloudflare_zone_id
+  zone_id     = var.czone_id
   description = "Pingdom"
   filter_id   = cloudflare_filter.pingdom.id
   action      = "allow"
