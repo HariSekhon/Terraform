@@ -13,10 +13,8 @@
 #
 
 # ============================================================================ #
-#              C l o u d f l a r e   L o c a l   V a r i a b l e s
+#                              C l o u d f l a r e
 # ============================================================================ #
-
-# required by cloudflare_firewall*.tf
 
 locals {
 
@@ -27,4 +25,11 @@ locals {
   # XXX: Edit
   cloudflare_zone_id = "..."
 
+}
+
+module "firewall" {
+  source             = "./cloudflare/firewall"
+  cloudflare_email   = var.cloudflare_email
+  cloudflare_api_key = var.cloudflare_api_key
+  zone_id            = local.cloudflare_zone_id
 }
