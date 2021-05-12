@@ -17,6 +17,7 @@
 # ============================================================================ #
 
 locals {
+  # https://developer.gocardless.com/api-reference/#overview-approved-ip-addresses
   gocardless_IPs = [
     "35.204.73.47",
     "35.204.191.250",
