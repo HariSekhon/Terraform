@@ -13,7 +13,7 @@
 #
 
 # ============================================================================ #
-#               C l o u d f l a r e   F i r e w a l l   R u l e s
+#           C l o u d f l a r e   F i r e w a l l   -   P i n g d o m
 # ============================================================================ #
 
 # Permit Pingdom health check probe addresses through Cloudflare Firewall to access private sites to test them
