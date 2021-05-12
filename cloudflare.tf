@@ -1,7 +1,7 @@
 #  vim:ts=2:sts=2:sw=2:et
 #
 #  Author: Hari Sekhon
-#  Date: 2021-03-04 18:19:03 +0000 (Thu, 04 Mar 2021)
+#  Date: 2021-03-04 18:17:02 +0000 (Thu, 04 Mar 2021)
 #
 #  https://github.com/HariSekhon/terraform
 #
@@ -16,15 +16,21 @@
 #                              C l o u d f l a r e
 # ============================================================================ #
 
-locals {
+# XXX: set these in terraform.tfvars
+variable "cloudflare_email" {
+  type = string
+}
+variable "cloudflare_api_key" {
+  type = string
+}
 
+locals {
   # obtained from the Cloudflare API:
   #
   #   cloudflare_zones.sh
   #
   # XXX: Edit
   cloudflare_zone_id = "..."
-
 }
 
 module "firewall" {
