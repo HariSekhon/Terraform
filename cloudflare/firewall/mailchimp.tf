@@ -28,7 +28,7 @@ locals {
 resource "cloudflare_filter" "mailchimp" {
   zone_id     = var.zone_id
   description = "MailChimp IPs"
-  expression  = "( ip.src in { ${join(" ", local.mailchimp_IPs)} } )"
+  expression  = "( ip.src in { ${join("\n", local.mailchimp_IPs)} } )"
 }
 
 resource "cloudflare_firewall_rule" "mailchimp" {

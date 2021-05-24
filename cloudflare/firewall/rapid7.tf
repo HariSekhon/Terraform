@@ -46,7 +46,7 @@ locals {
 resource "cloudflare_filter" "rapid7" {
   zone_id     = var.zone_id
   description = "Rapid7 IPs"
-  expression  = "( ip.src in { ${join(" ", local.rapid7_IPs)} } )"
+  expression  = "( ip.src in { ${join("\n", local.rapid7_IPs)} } )"
 }
 
 resource "cloudflare_firewall_rule" "rapid7" {

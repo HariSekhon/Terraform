@@ -35,7 +35,7 @@ locals {
 resource "cloudflare_filter" "sailthru" {
   zone_id     = var.zone_id
   description = "Sailthru IPs"
-  expression  = "( ip.src in { ${join(" ", local.sailthru_IPs)} } )"
+  expression  = "( ip.src in { ${join("\n", local.sailthru_IPs)} } )"
 }
 
 resource "cloudflare_firewall_rule" "sailthru" {

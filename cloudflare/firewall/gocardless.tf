@@ -28,7 +28,7 @@ locals {
 resource "cloudflare_filter" "gocardless" {
   zone_id     = var.zone_id
   description = "GoCardless IPs"
-  expression  = "( ip.src in { ${join(" ", local.gocardless_IPs)} } )"
+  expression  = "( ip.src in { ${join("\n", local.gocardless_IPs)} } )"
 }
 
 resource "cloudflare_firewall_rule" "gocardless" {

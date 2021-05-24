@@ -46,7 +46,7 @@ locals {
 resource "cloudflare_filter" "chargebee" {
   zone_id     = var.zone_id
   description = "ChargeBee IPs"
-  expression  = "( ip.src in { ${join(" ", local.chargebee_IPs)} } )"
+  expression  = "( ip.src in { ${join("\n", local.chargebee_IPs)} } )"
 }
 
 resource "cloudflare_firewall_rule" "chargebee" {

@@ -51,7 +51,7 @@ locals {
 resource "cloudflare_filter" "github_webhooks" {
   zone_id     = var.zone_id
   description = "GitHub Webhook IPs"
-  expression  = "(ip.src in { ${join(" ", local.github_webhook_IPs)} } )"
+  expression  = "(ip.src in { ${join("\n", local.github_webhook_IPs)} } )"
 }
 
 resource "cloudflare_firewall_rule" "github_webhooks" {

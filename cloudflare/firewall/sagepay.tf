@@ -25,7 +25,7 @@ locals {
 resource "cloudflare_filter" "sagepay" {
   zone_id     = var.zone_id
   description = "SagePay IPs"
-  expression  = "( ip.src in { ${join(" ", local.sagepay_IPs)} } )"
+  expression  = "( ip.src in { ${join("\n", local.sagepay_IPs)} } )"
 }
 
 resource "cloudflare_firewall_rule" "sagepay" {

@@ -26,7 +26,7 @@ locals {
 resource "cloudflare_filter" "vpn" {
   zone_id     = var.zone_id
   description = "VPN IPs"
-  expression  = "( ip.src in { ${join(" ", local.VPN_IPs)} } )"
+  expression  = "( ip.src in { ${join("\n", local.VPN_IPs)} } )"
 }
 
 resource "cloudflare_firewall_rule" "vpn" {
