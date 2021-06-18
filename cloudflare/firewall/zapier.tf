@@ -17,6 +17,8 @@
 # ============================================================================ #
 
 # Zapier apparently hasn't heard of NAT GWs so uses all dynamic IP addresses from AWS us-east-1 :-(
+#
+# Looks like Zapier is coming from IP addresses that aren't found in any AWS IP range in the API (as fetched by aws_ip_ranges.sh in https://aws_us_east_1.com/HariSekhon/DevOps-Bash-tools repo)
 
 # https://community.zapier.com/general-questions-3/zapier-server-ip-list-1919
 
