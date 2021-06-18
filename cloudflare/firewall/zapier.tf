@@ -53,7 +53,7 @@ resource "cloudflare_filter" "aws_us-east-1-ec2" {
   expression  = "(ip.src in { ${join("\n", local.aws_us_east_1_IPs)} } )"
 }
 
-resource "cloudflare_firewall_rule" "aws_us-east-1" {
+resource "cloudflare_firewall_rule" "aws_us-east-1-ec2" {
   zone_id     = var.zone_id
   description = "Zapier / AWS us-east-1 EC2"
   filter_id   = cloudflare_filter.aws_us-east-1-ec2.id
