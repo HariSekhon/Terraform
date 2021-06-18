@@ -20,7 +20,8 @@
 
 # https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/firewall_rule
 
-provider "http" {}
+# duplicates provider.tf
+#provider "http" {}
 
 # doesn't verify SSL except chain of trust according to Important notice for 0.12 at:
 #
@@ -44,7 +45,7 @@ data "http" "github_meta" {
 #}
 
 locals {
-  github_ips_data = jsondecode(data.http.github_meta.body)
+  github_ips_data    = jsondecode(data.http.github_meta.body)
   github_webhook_IPs = local.github_ips_data.hooks
 }
 
