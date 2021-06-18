@@ -50,7 +50,7 @@ locals {
 resource "cloudflare_filter" "aws_us-east-1-ec2" {
   zone_id     = var.zone_id
   description = "AWS us-east-1 EC2 IPs"
-  expression  = "(ip.src in { ${join("\n", local.aws_us_east_1_IPs)} } )"
+  expression  = "(ip.src in { ${join("\n", local.aws_us_east_1_IPs)} } )"  # and http.host eq \"MY.DOMAIN.COM\" and http.request.uri.path matches \"^/MY/PATH/\" and ssl )"
 }
 
 resource "cloudflare_firewall_rule" "aws_us-east-1-ec2" {
