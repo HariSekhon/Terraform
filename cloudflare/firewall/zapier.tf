@@ -49,7 +49,7 @@ locals {
 
 resource "cloudflare_filter" "aws_us-east-1-ec2" {
   zone_id     = var.zone_id
-  description = "aws_us_east_1 Webhook IPs"
+  description = "AWS us-east-1 EC2 IPs"
   expression  = "(ip.src in { ${join("\n", local.aws_us_east_1_IPs)} } )"
 }
 
