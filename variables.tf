@@ -14,6 +14,13 @@
 
 # XXX: set these in terraform.tfvars
 
+# AWS
+variable "profile" {
+  type = string
+  default = "default"
+}
+
+# GCP
 variable "project" {
   type = string
   #default = "myproject-123456"
@@ -24,6 +31,7 @@ variable "vpc_name" {
   #default = "default"
 }
 
+# AWS / GCP
 variable "region" {
   type = string
 
@@ -31,13 +39,13 @@ variable "region" {
   #
   #   https://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region
   #
-  #default = "eu-west-1"
+  #default = "eu-west-2"
 
   # GCP
   #
   #   https://cloud.google.com/compute/docs/regions-zones#available
   #
-  #default = "europe-west1"
+  #default = "europe-west2"
 }
 
 variable "node_count" {
