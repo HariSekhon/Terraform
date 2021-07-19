@@ -16,14 +16,15 @@
 #
 #   https://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region
 #
-#region   = "eu-west-1"
+profile = "default"
+region  = "eu-west-2"
 
 # GCP
 #
 #   https://cloud.google.com/compute/docs/regions-zones#available
 #
 project = "myproject-123456"
-region  = "europe-west-1"
+region  = "europe-west-2"
 
 vpc_name = "default"
 
