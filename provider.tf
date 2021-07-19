@@ -21,7 +21,7 @@ terraform {
     # https://registry.terraform.io/providers/hashicorp/aws/latest/docs
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 3.7.0"
+      version = "~> 3.27"
     }
 
     # https://www.terraform.io/docs/providers/google/index.html
@@ -39,6 +39,7 @@ terraform {
     cloudflare = {
       source = "cloudflare/cloudflare"
     }
+
   }
 
   required_version = ">= 0.13"
@@ -49,13 +50,14 @@ terraform {
 provider "aws" {
   # set here in 0.12, set in required_providers in 0.13
   version = "~> 3.7.0"
-  region  = var.region # eg. eu-west-1
+  profile = "default"
+  region  = var.region # eg. eu-west-2
 }
 
 # https://www.terraform.io/docs/providers/google/index.html
 provider "google" {
   project = var.project
-  region  = var.region # eg. europe-west1
+  region  = var.region # eg. europe-west2
 }
 
 provider "google-beta" {
