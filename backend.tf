@@ -66,7 +66,7 @@ terraform {
   # Terraform Cloud:
   #
   #backend "remote" {
-  #  hostname = "app.terraform.io"
+  #  hostname = "app.terraform.io"  # for Terraform Enterprise adjust this to your on-prem installation address
   #  organization = "mycompany"  # XXX: EDIT
   #
   #  workspaces {
