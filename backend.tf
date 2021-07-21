@@ -22,6 +22,8 @@ terraform {
   #  path = "./terraform.tfstate"
   #}
 
+  # Teams need one of the following for shared state:
+
   # ===========
   # Cloud Pros:
   #
