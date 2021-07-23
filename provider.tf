@@ -51,7 +51,7 @@ provider "aws" {
   # set here in 0.12, set in required_providers in 0.13
   version = "~> 3.7.0"
   profile = "default"
-  region  = var.region # eg. eu-west-2
+  region  = var.region # eg. eu-west-2, gets this from variables.tf default or tfvars or TFC variables
 }
 
 # https://www.terraform.io/docs/providers/google/index.html
