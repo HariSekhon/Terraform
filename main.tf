@@ -22,6 +22,16 @@ locals {
 
 # define terraform resources and import modules here
 
+# quick thing to create and tear down to test your AWS creds are working
+#resource "aws_instance" "test_server" {
+#  ami           = "ami-0194c3e07668a7e36"  # Ubuntu 20.04 LTS in eu-west-2
+#  instance_type = "t2.micro"
+#
+#  tags = {
+#    Name = "TestServer"
+#  }
+#}
+
 module "NAME" {
   source  = "./modules/NAME"
   project = var.project
