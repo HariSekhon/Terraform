@@ -12,6 +12,12 @@
 #  [% LINKEDIN %]
 #
 
+# ============================================================================ #
+#                     T e r r a f o r m   V a r i a b l e s
+# ============================================================================ #
+
+# XXX: Not used in Terraform Cloud - must set in workspace instead or use *.auto.tfvars
+
 # AWS
 #
 #   https://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region
