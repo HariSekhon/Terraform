@@ -12,14 +12,15 @@
 #  [% LINKEDIN %]
 #
 
+# ============================================================================ #
+#                          T e r r a f o r m   M a i n
+# ============================================================================ #
+
 locals {
-  # GCP enable these services
-  services_to_enable = [
-    "cloudscheduler.googleapis.com",
-    "sqladmin.googleapis.com",
-    "cloudfunctions.googleapis.com"
-  ]
+  var1 = "blah"
 }
+
+# define terraform resources and import modules here
 
 module "NAME" {
   source  = "./modules/NAME"
