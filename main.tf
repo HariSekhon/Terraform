@@ -26,6 +26,7 @@ locals {
 #resource "aws_instance" "test_server" {
 #  ami           = "ami-0194c3e07668a7e36"  # Ubuntu 20.04 LTS in eu-west-2
 #  instance_type = "t2.micro"
+#  subnet_id     = "subnet-12a3456bc789de0fa"  # need to find and populate this if no default VPC eg. when created by Control Tower
 #
 #  tags = {
 #    Name = "TestServer"
