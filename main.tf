@@ -17,7 +17,7 @@
 # ============================================================================ #
 
 locals {
-  var1 = "blah"
+  region = "eu-west-2"  # London
 }
 
 # define terraform resources and import modules here
@@ -36,6 +36,6 @@ locals {
 module "NAME" {
   source  = "./modules/NAME"
   project = var.project
-  region  = var.region
+  region  = local.region
   network = module.vpc.vpc_network
 }
