@@ -32,21 +32,21 @@ variable "vpc_name" {
 }
 
 # AWS / GCP
-variable "region" {
-  type = string
-
-  # AWS
-  #
-  #   https://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region
-  #
-  #default = "eu-west-2"
-
-  # GCP
-  #
-  #   https://cloud.google.com/compute/docs/regions-zones#available
-  #
-  #default = "europe-west2"
-}
+#variable "region" {
+#  type = string
+#
+#  # AWS
+#  #
+#  #   https://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region
+#  #
+#  #default = "eu-west-2"
+#
+#  # GCP
+#  #
+#  #   https://cloud.google.com/compute/docs/regions-zones#available
+#  #
+#  #default = "europe-west2"
+#}
 
 variable "node_count" {
   # only accept integers/floats
