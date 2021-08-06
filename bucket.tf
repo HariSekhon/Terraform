@@ -38,7 +38,16 @@ resource "aws_s3_bucket" "mybucket" {
       }
     }
   }
+}
 
+# policy to prevent any public access        XXX: Edit
+resource "aws_s3_bucket_public_access_block" "mybucket" {
+  bucket = aws_s3_bucket.mybucket.id # XXX: Edit
+
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
 }
 
 
