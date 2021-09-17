@@ -16,6 +16,14 @@
 #                             A W S   B u c k e t s
 # ============================================================================ #
 
+# XXX: blocks all public access - use carefully on existing accounts, better to apply to new accounts
+resource "aws_s3_account_public_access_block" "block-public" {
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
+}
+
                          # XXX: Edit
 resource "aws_s3_bucket" "mybucket" {
   bucket = "${var.project_name}-mybucket"
