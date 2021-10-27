@@ -3,7 +3,7 @@
 #  Author: Hari Sekhon
 #  Date: 2021-02-11 13:04:18 +0000 (Thu, 11 Feb 2021)
 #
-#  https://github.com/HariSekhon/Terraform-templates
+#  https://github.com/HariSekhon/Terraform
 #
 #  License: see accompanying Hari Sekhon LICENSE file
 #

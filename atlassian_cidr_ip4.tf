@@ -3,13 +3,13 @@
 #  Author: Hari Sekhon
 #  Date: [% DATE  # 2020-07-27 18:33:49 +0100 (Mon, 27 Jul 2020) %]
 #
-#  [% URL %]
+#  https://github.com/HariSekhon/Terraform
 #
-#  [% LICENSE %]
+#  License: see accompanying Hari Sekhon LICENSE file
 #
-#  [% MESSAGE %]
+#  If you're using my code you're welcome to connect with me on LinkedIn and optionally send me feedback to help steer this or other code I publish
 #
-#  [% LINKEDIN %]
+#  https://www.linkedin.com/in/HariSekhon
 #
 
 # tested on Terraform 0.12
