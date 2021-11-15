@@ -14,6 +14,8 @@
 
 # XXX: set these in terraform.tfvars
 
+# https://www.terraform.io/docs/language/values/variables.html#type-constraints
+
 # AWS
 variable "profile" {
   type    = string
