@@ -58,6 +58,7 @@ Instantly creates and opens all standard files for a Terraform deployment in you
 - [provider.tf](https://github.com/HariSekhon/Terraform-templates/blob/master/provider.tf)
 - [backend.tf](https://github.com/HariSekhon/Terraform-templates/blob/master/backend.tf)
 - [variables.tf](https://github.com/HariSekhon/Terraform-templates/blob/master/variables.tf)
+- [versions.tf](https://github.com/HariSekhon/Terraform-templates/blob/master/versions.tf)
 - [terraform.tfvars](https://github.com/HariSekhon/Terraform-templates/blob/master/terraform.tfvars)
 - [main.tf](https://github.com/HariSekhon/Terraform-templates/blob/master/main.tf)
 
