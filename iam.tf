@@ -16,6 +16,31 @@
 # ============================================================================ #
 
 # =======
+# AWS IAM
+#
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy
+
+resource "aws_iam_policy" "test" {
+  name        = "test"
+  path        = "/"
+  description = "My description here"
+
+  # jsonencode converts Terraform code to JSON which AWS IAM needs - alternatively just copy a literal JSON policy, but the Terraform version is handy if you need to reference something dynamically like an arn
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = [
+          "ec2:Describe*",
+        ]
+        Effect   = "Allow"
+        Resource = "*"
+      },
+    ]
+  })
+}
+
+# =======
 # GCP IAM
 #
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam
