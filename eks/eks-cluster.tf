@@ -5,8 +5,8 @@ module "eks" {
   cluster_name    = var.cluster_name
   cluster_version = "1.21"
   subnets         = module.vpc.private_subnets
-
   vpc_id = module.vpc.vpc_id
+  map_roles       = var.map_roles
 
   workers_group_defaults = {
     root_volume_type = "gp2"
