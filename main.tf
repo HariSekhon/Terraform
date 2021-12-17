@@ -44,6 +44,8 @@ module "eks" {
   source       = "../modules/eks"
   region       = local.region
   cluster_name = "mycluster"
+  # https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html
+  # https://kubernetes.io/docs/reference/access-authn-authz/rbac/#default-roles-and-role-bindings
   map_roles = [
     {
       rolearn  = "arn:aws:iam::123456789012:group/Admins"
