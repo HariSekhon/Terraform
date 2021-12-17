@@ -46,6 +46,11 @@ module "eks" {
   cluster_name = "mycluster"
   map_roles = [
     {
+      rolearn  = "arn:aws:iam::123456789012:group/Admins"
+      username = ""
+      groups   = ["cluster-admin"]
+    },
+    {
       rolearn  = "arn:aws:iam::123456789012:role/AWSReservedSSO_MyGroup_1234a567b890cdef",
       username = "myrole"
       groups   = []
