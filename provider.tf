@@ -12,7 +12,11 @@
 #  https://www.linkedin.com/in/HariSekhon
 #
 
+# ~> only allows last number (patch) to increment
+
 terraform {
+
+  required_version = ">= 0.13"
 
   # XXX: delete as necessary
   required_providers {
@@ -41,8 +45,6 @@ terraform {
     }
 
   }
-
-  required_version = ">= 0.13"
 
 }
 
