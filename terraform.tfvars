@@ -17,6 +17,8 @@
 # ============================================================================ #
 
 # XXX: Not used in Terraform Cloud - must set in workspace instead or use *.auto.tfvars
+#                                  - see terraform_cloud_*.sh scripts for easy credential uploads to Terraform Cloud
+#                                    in DevOps Bash tools repo: https://github.com/H;wariSekhon/DevOps-Bash-tools
 
 # AWS
 #
