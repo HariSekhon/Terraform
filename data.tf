@@ -12,7 +12,11 @@
 #  https://www.linkedin.com/in/HariSekhon
 #
 
-# Get dynamic data to use elsewhere in manifests, such as finding a suitable EC2 AMI for the region
+# ============================================================================ #
+#                            D a t a   s o u r c e s
+# ============================================================================ #
+
+# Get dynamic data from outside Terraform to use elsewhere in manifests, such as finding a suitable EC2 AMI for the region
 
 data "aws_ami" "myAMI" {
   owners = ["amazon"]
