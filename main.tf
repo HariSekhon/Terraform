@@ -59,3 +59,12 @@ module "eks" {
     }
   ]
 }
+
+resource "<type>" "<name>" {
+  ...
+  lifecycle {
+    create_before_destroy = false
+    prevent_destroy = false
+    ignore_changes = []  # list of attributes
+  }
+}
