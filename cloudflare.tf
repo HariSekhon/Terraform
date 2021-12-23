@@ -34,7 +34,8 @@ provider "cloudflare" {
   api_key = var.cloudflare_api_key
 }
 
-provider "http" {}
+# XXX: uncomment if not in provider.tf
+#provider "http" {}
 
 
 # =============
