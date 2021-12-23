@@ -14,7 +14,8 @@
 
 # tested on Terraform 0.12
 
-provider "http" {}
+# XXX: uncomment if not in provider.tf
+#provider "http" {}
 
 # doesn't verify SSL except chain of trust according to Important notice for 0.12 at:
 #
