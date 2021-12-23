@@ -55,6 +55,7 @@ terraform {
   #  bucket = "mybucket" # XXX: EDIT
   #  key    = "path/to/my/key"
   #  region = "eu-west-1"
+  #  encrypt = true
   #  # XXX: EDIT - set DynamoDB table name and configure for locking:
   #  #
   #  #  https://www.terraform.io/docs/backends/types/s3.html#dynamodb-state-locking
@@ -73,7 +74,7 @@ terraform {
   #    # XXX: EDIT
   #    # single workspace
   #    name = "my-app-prod"
-  #    # or multiple workspaces
+  #    # or multiple workspaces - prompts with a list of prefix matching workspaces at runtime
   #    prefix = "my-app-"
   #  }
   #}
