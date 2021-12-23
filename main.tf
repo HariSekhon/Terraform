@@ -17,7 +17,7 @@
 # ============================================================================ #
 
 locals {
-  region = "eu-west-2"  # London
+  region = "eu-west-2" # London
 }
 
 # define terraform resources and import modules here
@@ -61,10 +61,10 @@ module "eks" {
 }
 
 resource "<type>" "<name>" {
-  ...
+  #...
   lifecycle {
     create_before_destroy = false
-    prevent_destroy = false
-    ignore_changes = []  # list of attributes
+    prevent_destroy       = false
+    ignore_changes        = [] # list of attributes
   }
 }
