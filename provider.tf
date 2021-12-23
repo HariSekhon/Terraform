@@ -64,7 +64,7 @@ provider "google" {
 
 # choose this over the default one in any resource by adding this to the resource block: provider = google.europe
 provider "google" {
-  alias = "europe"  # to use this provider as an override on a resource-by-resource basis
+  alias   = "europe" # to use this provider as an override on a resource-by-resource basis
   project = var.project
   region  = europe-west2
 }
