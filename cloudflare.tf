@@ -17,25 +17,26 @@
 # ============================================================================ #
 
 # ============
+# XXX: uncomment if not in provider.tf
 # provider.tf:
 # needs to be in main deployment dir and also in cloudflare/firewall module
-terraform {
-  required_providers {
-    cloudflare = {
-      source = "cloudflare/cloudflare"
-    }
-  }
-  required_version = ">= 0.13"
-}
+#terraform {
+#  required_providers {
+#    cloudflare = {
+#      source = "cloudflare/cloudflare"
+#    }
+#  }
+#  required_version = ">= 0.13"
+#}
 
 # in terraform.tfvars
-provider "cloudflare" {
-  email   = var.cloudflare_email
-  api_key = var.cloudflare_api_key
-}
+#provider "cloudflare" {
+#  email   = var.cloudflare_email
+#  api_key = var.cloudflare_api_key
+#}
 
-# XXX: uncomment if not in provider.tf
 #provider "http" {}
+# ============
 
 
 # =============
