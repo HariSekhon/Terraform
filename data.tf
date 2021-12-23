@@ -20,7 +20,7 @@
 
 data "aws_ami" "amazon-linux-2" {
   most_recent = true
-  owners = ["amazon"]
+  owners      = ["amazon"]
 
   filter {
     name   = "owner-alias"
@@ -46,5 +46,5 @@ data "aws_ami" "amazon-linux-2" {
 }
 
 output "AMI-id" {
-    value = data.aws_ami.myAMI.id
+  value = data.aws_ami.myAMI.id
 }
