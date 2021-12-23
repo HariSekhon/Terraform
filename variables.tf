@@ -60,7 +60,7 @@ variable "instance_type" {
   type    = string
   default = "t3.micro"
   validation {
-    condition     = can(regex("^t3\\.", var.some_secret))
+    condition     = can(regex("^t3\\.", var.instance_type))
     error_message = "Must be a t3 type instance."
   }
 }
