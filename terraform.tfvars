@@ -32,7 +32,7 @@ region  = "eu-west-2"
 #   https://cloud.google.com/compute/docs/regions-zones#available
 #
 project = "myproject-123456"
-region  = "europe-west-2"
+#region  = "europe-west2"
 
 vpc_name = "default"
 
