@@ -54,9 +54,23 @@ variable "some_secret" {
   type = string
   description = "Description shown at CLI prompt if not auto provided via terraform.tfvars, *.auto.tfvars, TF_VAR_ etc"
   sensitive = true  # obscures in 'terraform plan' but still echo's when input prompted on CLI
+}
+
+variable "instance_type" {
+  type = string
+  default = "t3.micro"
   validation {
     condition = can(regex("^t3\.", var.some_secret))
     error_message = "Must be a t3 type instance."
+  }
+}
+
+variable "myvar" {
+  type = string
+  default = "testing"
+  validation{
+    condition = length(var.myvar) > 4
+    error_message = "The string must be more than 4 characters."
   }
 }
 
