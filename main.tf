@@ -33,12 +33,12 @@ locals {
 #  }
 #}
 
-module "NAME" {
-  source  = "./modules/NAME"
-  project = var.project
-  region  = local.region
-  network = module.vpc.vpc_network
-}
+#module "NAME" {
+#  source  = "./modules/NAME"
+#  project = var.project
+#  region  = local.region
+#  network = module.vpc.vpc_network
+#}
 
 module "eks" {
   source       = "../modules/eks"
@@ -60,11 +60,11 @@ module "eks" {
   ]
 }
 
-resource "<type>" "<name>" {
-  #...
-  lifecycle {
-    create_before_destroy = false
-    prevent_destroy       = false
-    ignore_changes        = [] # list of attributes
-  }
-}
+#resource "type" "name" {
+#  #...
+#  lifecycle {
+#    create_before_destroy = false
+#    prevent_destroy       = false
+#    ignore_changes        = [] # list of attributes
+#  }
+#}
