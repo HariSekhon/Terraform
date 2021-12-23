@@ -51,7 +51,7 @@ terraform {
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs
 provider "aws" {
   # set here in 0.12, set in required_providers in 0.13
-  version = "~> 3.7.0"
+  #version = "~> 3.7.0"
   profile = "default"
   region  = var.region # eg. eu-west-2, gets this from variables.tf default or tfvars or TFC variables
 }
@@ -76,8 +76,8 @@ provider "google-beta" {
 
 # https://www.terraform.io/docs/providers/azurerm/index.html
 provider "azurerm" {
-  # whilst the `version` attribute is optional, we recommend pinning to a given version of the Provider
-  version = "~> 2.28.0"
+  # set here in 0.12, set in required_providers in 0.13
+  #version = "~> 2.28.0"
   features {}
 }
 
