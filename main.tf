@@ -61,6 +61,7 @@ module "eks" {
 }
 
 #resource "type" "name" {
+#  count = terraform.workspace == "default" ? 3 : 1  # spin up 3 nodes in real environment but only 1 node if this is being deployed to an alternate developer workspace
 #  #...
 #  lifecycle {
 #    create_before_destroy = false
