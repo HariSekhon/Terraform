@@ -24,7 +24,8 @@ locals {
 
 # quick thing to create and tear down to test your AWS creds are working
 #resource "aws_instance" "test_server" {
-#  ami           = "ami-0194c3e07668a7e36"  # Ubuntu 20.04 LTS in eu-west-2
+#  #ami           = "ami-0194c3e07668a7e36"  # Ubuntu 20.04 LTS in eu-west-2
+#  ami           = lookup(var.aws_amis, var.aws_region)  # select the AMI depending on the region by checking the aws_amis variable for a key that matches the region
 #  instance_type = "t2.micro"
 #  subnet_id     = "subnet-12a3456bc789de0fa"  # need to find and populate this if no default VPC eg. when created by Control Tower
 #
@@ -61,6 +62,10 @@ module "eks" {
 }
 
 #resource "type" "name" {
+#  count = "${terraform.workspace == "default" ? 5 : 1}"
+#  tags = {
+#    Name = "web - ${terraform.workspace}"
+#  }
 #  #...
 #  lifecycle {
 #    create_before_destroy = false
