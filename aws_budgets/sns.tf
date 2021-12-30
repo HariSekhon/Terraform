@@ -13,6 +13,7 @@ data "aws_iam_policy_document" "aws-charges-sns-topic-policy" {
   policy_id = "__default_policy_ID"
 
   statement {
+    sid = "__default_statement_ID"
     actions = [
       "SNS:Subscribe",
       "SNS:SetTopicAttributes",
@@ -45,10 +46,10 @@ data "aws_iam_policy_document" "aws-charges-sns-topic-policy" {
     resources = [
       aws_sns_topic.aws-charges.arn,
     ]
-
-    sid = "__default_statement_ID"
   }
+
   statement {
+    sid = "AWSBudgets-notification"
     actions = [
       "SNS:Publish",
     ]
@@ -63,8 +64,6 @@ data "aws_iam_policy_document" "aws-charges-sns-topic-policy" {
     resources = [
       aws_sns_topic.aws-charges.arn,
     ]
-
-    sid = "AWSBudgets-notification"
   }
 }
 

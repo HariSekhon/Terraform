@@ -18,6 +18,7 @@
 
 locals {
   region = "eu-west-2" # London
+  #region = terraform.workspace == "default" ? "eu-west-2" : "eu-west-1" # deploy main in London, else dev in Ireland
 }
 
 # define terraform resources and import modules here
@@ -62,7 +63,8 @@ module "eks" {
 }
 
 #resource "type" "name" {
-#  count = "${terraform.workspace == "default" ? 5 : 1}"
+#  name = "${terraform.workspace}-myname"
+#  count = terraform.workspace == "default" ? 3 : 1  # spin up 3 nodes in real environment but only 1 node if this is being deployed to an alternate developer workspace
 #  tags = {
 #    Name = "web - ${terraform.workspace}"
 #  }
