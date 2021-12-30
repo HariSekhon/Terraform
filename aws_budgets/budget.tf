@@ -10,12 +10,12 @@ resource "aws_budgets_budget" "aws-charges" {
   #cost_filter {
   #}
   cost_types {
-	 # XXX: in testing if credit/refund are true this prevents/delays the thresholds from triggering when created
-    include_credit             = false  # XXX: should be false, see note above
+    # XXX: in testing if credit/refund are true this prevents/delays the thresholds from triggering when created
+    include_credit             = false # XXX: should be false, see note above
     include_discount           = true
     include_other_subscription = true
     include_recurring          = true
-    include_refund             = false  # XXX: should be false, see note above
+    include_refund             = false # XXX: should be false, see note above
     include_subscription       = true
     include_support            = true
     include_tax                = true
