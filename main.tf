@@ -50,9 +50,9 @@ module "eks" {
   # https://kubernetes.io/docs/reference/access-authn-authz/rbac/#default-roles-and-role-bindings
   map_roles = [
     {
-      rolearn  = "arn:aws:iam::123456789012:group/Admins"
-      username = ""
-      groups   = ["cluster-admin"]
+      rolearn  = "arn:aws:iam::123456789012:user/hari-cli"
+      username = "cluster-admin"
+      groups   = ["system:masters"]
     },
     {
       rolearn  = "arn:aws:iam::123456789012:role/AWSReservedSSO_MyGroup_1234a567b890cdef",
