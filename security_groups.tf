@@ -28,7 +28,7 @@ locals {
   ]
 }
 
-resources "aws_security_group" "my-sg" {
+resource "aws_security_group" "my-sg" {
   name   = "my-aws-security-group"
   vpc_id = "some-vpc" # aws_vpc.my-vpc.id
   dynamic "ingress" {
