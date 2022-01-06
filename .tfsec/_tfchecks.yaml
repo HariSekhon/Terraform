@@ -1,0 +1,39 @@
+#
+#  Author: Hari Sekhon
+#  Date: 2022-01-06 15:30:22 +0000 (Thu, 06 Jan 2022)
+#
+#  vim:ts=2:sts=2:sw=2:et
+#
+#  https://github.com/HariSekhon/terraform
+#
+#  License: see accompanying Hari Sekhon LICENSE file
+#
+#  If you're using my code you're welcome to connect with me on LinkedIn and optionally send me feedback to help steer this or other code I publish
+#
+#  https://www.linkedin.com/in/HariSekhon
+#
+
+# ============================================================================ #
+#                     T F s e c   C u s t o m   C h e c k s
+# ============================================================================ #
+
+# https://aquasecurity.github.io/tfsec/v0.63.1/getting-started/configuration/custom-checks/
+
+---
+checks:
+- code: CUS001
+  description: Custom check to ensure the CostCentre tag is applied to EC2 instances
+  impact: By not having CostCentre we can't keep track of billing
+  resolution: Add the CostCentre tag
+  requiredTypes:
+  - resource
+  requiredLabels:
+  - aws_instance
+  severity: ERROR
+  matchSpec:
+    name: tags
+    action: contains
+    value: CostCentre
+  errorMessage: The required CostCentre tag was missing
+  relatedLinks:
+  - http://internal.acmecorp.com/standards/aws/tagging.html
