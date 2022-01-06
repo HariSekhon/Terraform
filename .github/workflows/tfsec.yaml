@@ -24,10 +24,10 @@ on:
   #  branches:
   #    - master
   #    - main
-  pull_request:
-    branches:
-      - master
-      - main
+  #pull_request:
+  #  branches:
+  #    - master
+  #    - main
   schedule:
     - cron: '30 0 * * 1'
 
