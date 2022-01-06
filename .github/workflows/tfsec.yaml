@@ -20,8 +20,16 @@
 name: tfsec
 
 on:
-  push:
+  #push:
+  #  branches:
+  #    - master
+  #    - main
   pull_request:
+    branches:
+      - master
+      - main
+  schedule:
+    - cron: '30 0 * * 1'
 
 jobs:
   tfsec:
