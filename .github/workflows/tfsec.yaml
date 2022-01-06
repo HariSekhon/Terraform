@@ -43,6 +43,8 @@ jobs:
         with:
           sarif_file: tfsec.sarif
           #config_file: tfsec.yaml  # default: .tfsec/config.yaml
+          #working_directory: terraform/
+          #github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v1
