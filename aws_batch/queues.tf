@@ -9,6 +9,14 @@
 # Workaround - for each queue:
 #
 #   terraform taint module.aws_batch.aws_batch_job_queue.myqueue
+#
+# taint all queues:
+#
+#   terraform state list | grep -E '^module\.aws-batch\.aws_batch_job_queue\.' | while read -r name; do terraform taint "$name"; done
+#
+# or newer 'terraform apply -replace'
+#
+#   terraform apply $(terraform state list | grep -E '^module\.aws-batch\.aws_batch_job_queue\.' | while read -r name; do echo " -replace=$name"; done)
 
 
 resource "aws_batch_job_queue" "myqueue" {
