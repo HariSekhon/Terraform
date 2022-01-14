@@ -28,28 +28,28 @@ You can give an exact filename like `provider.tf` or `backend.tf` to instantiate
 
 Examples:
 
-```
+```bash
 new provider.tf
 ```
 
-```
+```bash
 new backend.tf
 ```
 
 `new.pl` can be found in the [DevOps Perl tools](https://github.com/HariSekhon/DevOps-Perl-tools) repo.
 
-```alias new=new.pl```
+`alias new=new.pl`
 
 (done automatically in the [DevOps Bash tools](https://github.com/HariSekhon/DevOps-Bash-tools) repo `.bash.d/`)
 
 
 #### New Terraform Structure
 
-```
+```bash
 new terraform
 ```
 or shorter
-```
+```bash
 new tf
 ```
 
