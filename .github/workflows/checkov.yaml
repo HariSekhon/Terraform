@@ -20,7 +20,7 @@
 # https://github.com/bridgecrewio/checkov-action
 
 on:
-  #push:
+  push:
   #  branches:
   #    - master
   #    - main
