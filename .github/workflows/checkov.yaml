@@ -33,8 +33,15 @@ on:
 
 jobs:
   checkov-job:
-    runs-on: ubuntu-latest
     name: checkov-action
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@master
