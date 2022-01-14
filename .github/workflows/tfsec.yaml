@@ -38,6 +38,7 @@ jobs:
     name: tfsec sarif report
     runs-on: ubuntu-latest
     timeout-minutes: 10
+
     permissions:
       actions: read
       contents: read
