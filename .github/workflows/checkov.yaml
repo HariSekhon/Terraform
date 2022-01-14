@@ -14,8 +14,14 @@
 # https://github.com/bridgecrewio/checkov-action
 
 on:
-  - push
-  - pull_request
+  #push:
+  #  branches:
+  #    - master
+  #    - main
+  pull_request:
+    branches:
+      - master
+      - main
   schedule:
     - cron: '30 0 * * 1'
 
