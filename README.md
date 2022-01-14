@@ -66,7 +66,7 @@ Instantly creates and opens all standard files for a Terraform deployment in you
 all heavily commented to get a new Terraform environment up and running quickly - with links to things like AWS / GCP regions, Terraform backend providers, state locking etc.
 
 
-### See Also:
+### See Also
 
 * [Kubernetes configs](https://github.com/HariSekhon/Kubernetes-configs) - Kubernetes YAML configs - Best Practices, Tips & Tricks are baked right into the templates for future deployments
 
