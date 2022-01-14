@@ -12,7 +12,7 @@
 #
 
 # ============================================================================ #
-#                     T F s e c   G i t H u b   A c t i o n
+#                   T F s e c   G i t H u b   W o r k f l o w
 # ============================================================================ #
 
 # Static analysis of Terraform code - publishes report to GitHub Security tab
