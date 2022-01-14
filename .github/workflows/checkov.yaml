@@ -16,6 +16,8 @@
 on:
   - push
   - pull_request
+  schedule:
+    - cron: '30 0 * * 1'
 
 jobs:
   checkov-job:
@@ -41,3 +43,9 @@ jobs:
           #config_file: path/this_file
           #baseline: cloudformation/.checkov.baseline # optional: Path to a generated baseline file. Will only report results not in the baseline.
           container_user: 1000 # optional: Define what UID and / or what GID to run the container under to prevent permission issues
+
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          # Path to SARIF file relative to the root of the repository
+          sarif_file: results.sarif
