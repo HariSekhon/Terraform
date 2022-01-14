@@ -11,6 +11,12 @@
 #  https://www.linkedin.com/in/harisekhon
 #
 
+# ============================================================================ #
+#                 C h e c k o v   G i t H u b   W o r k f l o w
+# ============================================================================ #
+
+# Static analysis of Terraform code - publishes report to GitHub Security tab
+
 # https://github.com/bridgecrewio/checkov-action
 
 on:
