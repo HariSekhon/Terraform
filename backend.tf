@@ -32,7 +32,7 @@ terraform {
   #
   # XXX: remember to enable Object Versioning on this GCS bucket for state recovery:
   #
-  #		https://cloud.google.com/storage/docs/object-versioning
+  #   https://cloud.google.com/storage/docs/object-versioning
   #
   #   gsutil versioning set on gs://$GOOGLE_PROJECT_ID-productiontf-state
   #backend "gcs" {
@@ -45,11 +45,11 @@ terraform {
   #
   # XXX: remember to enable Bucket Versioning on this S3 bucket for state recovery:
   #
-  #		https://docs.aws.amazon.com/AmazonS3/latest/user-guide/enable-versioning.html
+  #   https://docs.aws.amazon.com/AmazonS3/latest/user-guide/enable-versioning.html
   #
   # IAM permissions needed:
   #
-  #		https://www.terraform.io/docs/backends/types/s3.html#s3-bucket-permissions
+  #   https://www.terraform.io/docs/backends/types/s3.html#s3-bucket-permissions
   #
   #backend "s3" {
   #  bucket = "mybucket" # XXX: EDIT
