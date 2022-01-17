@@ -17,8 +17,8 @@ resource "aws_iam_policy" "aws-batch-submitter" {
 
 # default by AWS, can't configure this
 #resource "aws_iam_role" "aws_batch_service_role" {
-#  name               = "AWSServiceRoleForBatch"
-#  path		   = "/aws-service-role/batch.amazonaws.com/"
+#  name      = "AWSServiceRoleForBatch"
+#  path      = "/aws-service-role/batch.amazonaws.com/"
 #  managed_policy_arns = ["arn:aws:iam::aws:policy/aws-service-role/BatchServiceRolePolicy"]
 #  assume_role_policy = jsonencode({
 #    Version = "2012-10-17"
