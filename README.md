@@ -4,16 +4,17 @@ Terraform Templates
 [![Validation](https://github.com/HariSekhon/Terraform/actions/workflows/validate.yaml/badge.svg)](https://github.com/HariSekhon/Terraform/actions/workflows/validate.yaml)
 [![tfsec](https://github.com/HariSekhon/Terraform/actions/workflows/tfsec.yaml/badge.svg)](https://github.com/HariSekhon/Terraform/actions/workflows/tfsec.yaml)
 [![CI Builds Overview](https://img.shields.io/badge/CI%20Builds-Overview%20Page-blue?logo=circleci)](https://bitbucket.org/harisekhon/devops-bash-tools/src/master/STATUS.md)
-[![Travis CI](https://img.shields.io/badge/TravisCI-legacy-lightgrey?logo=travis&label=Travis%20CI)](https://github.com/HariSekhon/Terraform-templates/blob/master/.travis.yml)
-[![Repo on Azure DevOps](https://img.shields.io/badge/repo-Azure%20DevOps-0078D7?logo=azure%20devops)](https://dev.azure.com/harisekhon/GitHub/_git/Terraform-templates)
-[![Repo on GitHub](https://img.shields.io/badge/repo-GitHub-2088FF?logo=github)](https://github.com/HariSekhon/Terraform-templates)
-[![Repo on GitLab](https://img.shields.io/badge/repo-GitLab-FCA121?logo=gitlab)](https://gitlab.com/HariSekhon/Terraform-templates)
-[![Repo on BitBucket](https://img.shields.io/badge/repo-BitBucket-0052CC?logo=bitbucket)](https://bitbucket.org/HariSekhon/Terraform-templates)
+[![Travis CI](https://img.shields.io/badge/TravisCI-legacy-lightgrey?logo=travis&label=Travis%20CI)](https://github.com/HariSekhon/Terraform/blob/master/.travis.yml)
 
-[![GitHub Last Commit](https://img.shields.io/github/last-commit/HariSekhon/Terraform-templates?logo=github)](https://github.com/HariSekhon/Terraform-templates/commits/master)
-[![Lines of Config](https://img.shields.io/badge/lines%20of%20config-1500-lightgrey?logo=codecademy)](https://github.com/HariSekhon/Terraform-templates)
-[![GitHub stars](https://img.shields.io/github/stars/HariSekhon/Terraform-templates?logo=github)](https://github.com/HariSekhon/Terraform-templates//stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/HariSekhon/Terraform-templates?logo=github)](https://github.com/HariSekhon/Terraform-templates/network)
+[![Repo on Azure DevOps](https://img.shields.io/badge/repo-Azure%20DevOps-0078D7?logo=azure%20devops)](https://dev.azure.com/harisekhon/GitHub/_git/Terraform)
+[![Repo on GitHub](https://img.shields.io/badge/repo-GitHub-2088FF?logo=github)](https://github.com/HariSekhon/Terraform)
+[![Repo on GitLab](https://img.shields.io/badge/repo-GitLab-FCA121?logo=gitlab)](https://gitlab.com/HariSekhon/Terraform)
+[![Repo on BitBucket](https://img.shields.io/badge/repo-BitBucket-0052CC?logo=bitbucket)](https://bitbucket.org/HariSekhon/Terraform)
+
+[![GitHub Last Commit](https://img.shields.io/github/last-commit/HariSekhon/Terraform?logo=github)](https://github.com/HariSekhon/Terraform/commits/master)
+[![Lines of Config](https://img.shields.io/badge/lines%20of%20config-2k-lightgrey?logo=codecademy)](https://github.com/HariSekhon/Terraform)
+[![GitHub stars](https://img.shields.io/github/stars/HariSekhon/Terraform?logo=github)](https://github.com/HariSekhon/Terraform//stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/HariSekhon/Terraform?logo=github)](https://github.com/HariSekhon/Terraform/network)
 
 [git.io/tf-templates](https://git.io/tf-templates)
 
@@ -57,12 +58,12 @@ new tf
 
 Instantly creates and opens all standard files for a Terraform deployment in your `$EDITOR` of choice:
 
-- [provider.tf](https://github.com/HariSekhon/Terraform-templates/blob/master/provider.tf)
-- [backend.tf](https://github.com/HariSekhon/Terraform-templates/blob/master/backend.tf)
-- [variables.tf](https://github.com/HariSekhon/Terraform-templates/blob/master/variables.tf)
-- [versions.tf](https://github.com/HariSekhon/Terraform-templates/blob/master/versions.tf)
-- [terraform.tfvars](https://github.com/HariSekhon/Terraform-templates/blob/master/terraform.tfvars)
-- [main.tf](https://github.com/HariSekhon/Terraform-templates/blob/master/main.tf)
+- [provider.tf](https://github.com/HariSekhon/Terraform/blob/master/provider.tf)
+- [backend.tf](https://github.com/HariSekhon/Terraform/blob/master/backend.tf)
+- [variables.tf](https://github.com/HariSekhon/Terraform/blob/master/variables.tf)
+- [versions.tf](https://github.com/HariSekhon/Terraform/blob/master/versions.tf)
+- [terraform.tfvars](https://github.com/HariSekhon/Terraform/blob/master/terraform.tfvars)
+- [main.tf](https://github.com/HariSekhon/Terraform/blob/master/main.tf)
 
 all heavily commented to get a new Terraform environment up and running quickly - with links to things like AWS / GCP regions, Terraform backend providers, state locking etc.
 
@@ -87,6 +88,6 @@ all heavily commented to get a new Terraform environment up and running quickly 
 
 - [Dockerfiles](https://github.com/HariSekhon/Dockerfiles) - 50+ DockerHub public images for Docker & Kubernetes - Hadoop, Kafka, ZooKeeper, HBase, Cassandra, Solr, SolrCloud, Presto, Apache Drill, Nifi, Spark, Mesos, Consul, Riak, OpenTSDB, Jython, Advanced Nagios Plugins & DevOps Tools repos on Alpine, CentOS, Debian, Fedora, Ubuntu, Superset, H2O, Serf, Alluxio / Tachyon, FakeS3
 
-[![Stargazers over time](https://starchart.cc/HariSekhon/Terraform-templates.svg)](https://starchart.cc/HariSekhon/Terraform-templates)
+[![Stargazers over time](https://starchart.cc/HariSekhon/Terraform.svg)](https://starchart.cc/HariSekhon/Terraform)
 
 [git.io/tf-templates](https://git.io/tf-templates)
