@@ -20,6 +20,7 @@
 
 # https://aquasecurity.github.io/tfsec/v0.63.1/getting-started/configuration/github-actions/pr-commenter/
 
+---
 name: tfsec-pr-commenter
 
 on:
@@ -28,13 +29,8 @@ on:
 jobs:
   tfsec:
     name: tfsec PR commenter
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Clone repo
-        uses: actions/checkout@master
-
-      - name: tfsec
-        uses: tfsec/tfsec-pr-commenter-action@5e9f770638057da497182661aacbf640ca94f4e9
-        #with:
-        #  github_token: ${{ secrets.GITHUB_TOKEN }}
+    uses: HariSekhon/GitHub-Actions/.github/workflows/tfsec-pr-commenter.yaml@master
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
