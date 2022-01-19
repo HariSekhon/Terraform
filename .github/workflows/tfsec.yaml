@@ -30,35 +30,11 @@ on:
     branches:
       - master
       - main
+  workflow_dispatch
   schedule:
     - cron: '30 0 * * 1'
 
 jobs:
-  tfsec:
-    name: tfsec sarif report
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-
-    permissions:
-      actions: read
-      contents: read
-      security-events: write
-
-    steps:
-      - name: Clone repo
-        uses: actions/checkout@v2
-
-      - name: tfsec
-        #uses: tfsec/tfsec-sarif-action@main
-        uses: tfsec/tfsec-sarif-action@9a83b5c3524f825c020e356335855741fd02745f
-        with:
-          sarif_file: tfsec.sarif
-          #config_file: tfsec.yaml  # default: .tfsec/config.yaml
-          #working_directory: terraform/
-          #github_token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v1
-        with:
-          # Path to SARIF file relative to the root of the repository
-          sarif_file: tfsec.sarif
+	tfsec:
+    name: tfsec
+    uses: HariSekhon/GitHub-Actions/.github/workflows/tfsec.yaml@master
