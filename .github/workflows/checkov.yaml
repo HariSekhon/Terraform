@@ -21,50 +21,22 @@
 
 on:
   push:
-  #  branches:
-  #    - master
-  #    - main
+    branches:
+      - master
+      - main
   pull_request:
     branches:
       - master
       - main
+  workflow_dispatch:
   schedule:
-    - cron: '30 0 * * 1'
+    - cron: '0 0 * * 1'
 
 jobs:
-  checkov-job:
-    name: checkov-action
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-
+  checkov:
+    name: Checkov
+    uses: HariSekhon/GitHub-Actions/.github/workflows/checkov.yaml@master
     permissions:
       actions: read
       contents: read
       security-events: write
-
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@master
-
-      - name: Run Checkov action
-        id: checkov
-        uses: bridgecrewio/checkov-action@master
-        with:
-          directory: .
-          #check: CKV_AWS_1 # optional: run only a specific check_id. can be comma separated list
-          skip_check: CKV_AWS_2 # optional: skip a specific check_id. can be comma separated list
-          quiet: true # optional: display only failed checks
-          soft_fail: true # optional: do not return an error code if there are failed checks
-          framework: terraform # optional: run only on a specific infrastructure {cloudformation,terraform,kubernetes,all}
-          output_format: sarif # optional: the output format, one of: cli, json, junitxml, github_failed_only, or sarf. Default: sarif
-          download_external_modules: true # optional: download external terraform modules from public git repositories and terraform registry
-          #log_level: DEBUG # optional: set log level. Default WARNING
-          #config_file: path/this_file
-          #baseline: cloudformation/.checkov.baseline # optional: Path to a generated baseline file. Will only report results not in the baseline.
-          container_user: 1000 # optional: Define what UID and / or what GID to run the container under to prevent permission issues
-
-      - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v1
-        with:
-          # Path to SARIF file relative to the root of the repository
-          sarif_file: results.sarif
