@@ -35,6 +35,6 @@ on:
     - cron: '30 0 * * 1'
 
 jobs:
-	tfsec:
+  tfsec:
     name: tfsec
     uses: HariSekhon/GitHub-Actions/.github/workflows/tfsec.yaml@master
