@@ -27,7 +27,7 @@ on:
   pull_request:
 
 jobs:
-  tfsec:
+  tfsec_pr_commenter:
     name: tfsec PR commenter
     uses: HariSekhon/GitHub-Actions/.github/workflows/tfsec-pr-commenter.yaml@master
     permissions:
