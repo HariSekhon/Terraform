@@ -39,3 +39,7 @@ jobs:
   tfsec:
     name: tfsec
     uses: HariSekhon/GitHub-Actions/.github/workflows/tfsec.yaml@master
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
