@@ -17,6 +17,7 @@ Terraform Templates
 [![Lines of Config](https://img.shields.io/badge/lines%20of%20config-2k-lightgrey?logo=codecademy)](https://github.com/HariSekhon/Terraform)
 [![GitHub stars](https://img.shields.io/github/stars/HariSekhon/Terraform?logo=github)](https://github.com/HariSekhon/Terraform//stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/HariSekhon/Terraform?logo=github)](https://github.com/HariSekhon/Terraform/network)
+[![License](https://img.shields.io/github/license/HariSekhon/Terraform)](https://github.com/HariSekhon/Terraform/blob/master/LICENSE)
 
 [git.io/tf-templates](https://git.io/tf-templates)
 
