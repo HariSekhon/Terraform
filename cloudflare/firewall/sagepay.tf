@@ -33,4 +33,5 @@ resource "cloudflare_firewall_rule" "sagepay" {
   description = "SagePay"
   filter_id   = cloudflare_filter.sagepay.id
   action      = "allow"
+  priority    = 5570
 }

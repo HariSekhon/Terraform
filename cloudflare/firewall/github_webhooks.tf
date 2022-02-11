@@ -60,4 +60,5 @@ resource "cloudflare_firewall_rule" "github_webhooks" {
   description = "GitHub Webhooks"
   filter_id   = cloudflare_filter.github_webhooks.id
   action      = "allow"
+  priority    = 5520
 }

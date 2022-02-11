@@ -34,4 +34,5 @@ resource "cloudflare_firewall_rule" "vpn" {
   description = "VPN"
   filter_id   = cloudflare_filter.vpn.id
   action      = "allow"
+  priority    = 5590
 }

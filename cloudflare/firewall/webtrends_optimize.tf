@@ -36,4 +36,5 @@ resource "cloudflare_firewall_rule" "webtrends-optimize" {
   description = "Webtrends Optimize"
   filter_id   = cloudflare_filter.webtrends-optimize.id
   action      = "allow"
+  priority    = 5600
 }

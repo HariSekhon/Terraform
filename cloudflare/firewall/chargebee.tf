@@ -54,4 +54,5 @@ resource "cloudflare_firewall_rule" "chargebee" {
   description = "ChargeBee"
   filter_id   = cloudflare_filter.chargebee.id
   action      = "allow"
+  priority    = 5510
 }

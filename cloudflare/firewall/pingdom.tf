@@ -47,4 +47,5 @@ resource "cloudflare_firewall_rule" "pingdom" {
   description = "Pingdom"
   filter_id   = cloudflare_filter.pingdom.id
   action      = "allow"
+  priority    = 5550
 }

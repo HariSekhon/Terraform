@@ -36,4 +36,5 @@ resource "cloudflare_firewall_rule" "mailchimp" {
   description = "MailChimp"
   filter_id   = cloudflare_filter.mailchimp.id
   action      = "allow"
+  priority    = 5540
 }

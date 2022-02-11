@@ -60,6 +60,7 @@ resource "cloudflare_firewall_rule" "aws_us-east-1-ec2" {
   description = "Zapier / AWS us-east-1 EC2"
   filter_id   = cloudflare_filter.aws_us-east-1-ec2.id
   action      = "allow"
+  priority    = 5610
 }
 
 #output "aws_us-east-1_IPs" {

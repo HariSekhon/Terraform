@@ -54,4 +54,5 @@ resource "cloudflare_firewall_rule" "rapid7" {
   description = "Rapid7"
   filter_id   = cloudflare_filter.rapid7.id
   action      = "allow"
+  priority    = 5560
 }

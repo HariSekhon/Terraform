@@ -36,4 +36,5 @@ resource "cloudflare_firewall_rule" "gocardless" {
   description = "GoCardless"
   filter_id   = cloudflare_filter.gocardless.id
   action      = "allow"
+  priority    = 5530
 }

@@ -53,4 +53,5 @@ resource "cloudflare_firewall_rule" "sailthru" {
   description = "Sailthru"
   filter_id   = cloudflare_filter.sailthru.id
   action      = "allow"
+  priority    = 5580
 }
