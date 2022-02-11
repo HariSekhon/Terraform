@@ -31,3 +31,5 @@ jobs:
   format-write:
     name: Terraform Fmt Write
     uses: HariSekhon/GitHub-Actions/.github/workflows/terraform-fmt-write.yaml@master
+    permissions:
+      contents: write
