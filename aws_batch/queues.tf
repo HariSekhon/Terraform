@@ -20,7 +20,7 @@
 
 
 resource "aws_batch_job_queue" "myqueue" {
-  name     = "myqueue"  # XXX: Edit
+  name     = "myqueue" # XXX: Edit
   state    = "ENABLED"
   priority = 1
   compute_environments = [

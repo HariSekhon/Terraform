@@ -5,10 +5,10 @@ module "eks" {
   cluster_name    = var.cluster_name
   cluster_version = "1.21"
   subnets         = module.vpc.private_subnets
-  vpc_id = module.vpc.vpc_id
+  vpc_id          = module.vpc.vpc_id
   # https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html
   # https://kubernetes.io/docs/reference/access-authn-authz/rbac/#default-roles-and-role-bindings
-  map_roles       = var.map_roles
+  map_roles = var.map_roles
 
   workers_group_defaults = {
     root_volume_type = "gp2"

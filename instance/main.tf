@@ -20,16 +20,16 @@ variable "instance_type" {
 variable "instance_subnetwork" {}
 
 resource "google_compute_instance" "vm_instance" {
-  name         = "${var.instance_name}"
-  zone         = "${var.instance_zone}"
-  machine_type = "${var.instance_type}"
+  name         = var.instance_name
+  zone         = var.instance_zone
+  machine_type = var.instance_type
   boot_disk {
     initialize_params {
       image = "debian-cloud/debian-9"
     }
   }
   network_interface {
-    subnetwork = "${var.instance_subnetwork}"
+    subnetwork = var.instance_subnetwork
     access_config {
       # allocates a one-to-one NAT IP to the instance
     }

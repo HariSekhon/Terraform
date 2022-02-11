@@ -54,7 +54,7 @@ resource "aws_iam_role" "ecs_instance_role" {
 }
 
 resource "aws_iam_role" "job" {
-  name = "MyJob"  # XXX: Edit
+  name = "MyJob" # XXX: Edit
   managed_policy_arns = [
     "arn:aws:iam::aws:policy/AmazonS3FullAccess",
     "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy",

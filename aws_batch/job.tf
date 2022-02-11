@@ -1,5 +1,5 @@
 resource "aws_batch_job_definition" "myjob" {
-  name = "MyJob"  # XXX: Edit
+  name = "MyJob" # XXX: Edit
   type = "container"
   container_properties = jsonencode(
     {
@@ -28,7 +28,7 @@ resource "aws_batch_job_definition" "myjob" {
       volumes = []
     }
   )
-  platform_capabilities = ["EC2"]  # needed rather than Fargate to create bigger jobs, more vCPU, disk with launch templates etc
+  platform_capabilities = ["EC2"] # needed rather than Fargate to create bigger jobs, more vCPU, disk with launch templates etc
   retry_strategy {
     attempts = 1
   }
