@@ -12,7 +12,7 @@
 #
 
 ---
-name: Terraform Fmt Write
+name: Fmt
 
 on:
   push:
