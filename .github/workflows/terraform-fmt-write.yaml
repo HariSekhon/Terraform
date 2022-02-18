@@ -33,3 +33,4 @@ jobs:
     uses: HariSekhon/GitHub-Actions/.github/workflows/terraform-fmt-write.yaml@master
     permissions:
       contents: write
+      pull-requests: write
