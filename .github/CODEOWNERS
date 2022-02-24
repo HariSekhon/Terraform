@@ -4,7 +4,7 @@
 #
 #  vim:ts=4:sts=4:sw=4:et
 #
-#  https://github.com/HariSekhon/Terraform-templates
+#  https://github.com/HariSekhon/Terraform
 #
 #  License: see accompanying Hari Sekhon LICENSE file
 #
@@ -17,4 +17,10 @@
 
 # Good in theory, to alert on PR changes to these code paths, but for public repos which may be forked and run .github/workflows/fork-update.yaml, this will result in a lot of spam
 
-#* @harisekhon
+# * includes changes under .github/
+
+#*      @harisekhon
+#*      @myorg/platform-engineering  # team based is the way to go
+#*      @myorg/devops
+#k8s    @myorg/devops
+#src/*  @myorg/developers
