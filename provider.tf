@@ -102,7 +102,9 @@ provider "cloudflare" {
 
 provider "http" {}
 
-provider "github" {}
+provider "github" {
+  owner = "HariSekhon"  # user or organization
+}
 
 # https://registry.terraform.io/providers/hashicorp/kubernetes/latest
 #provider "kubernetes" {}
