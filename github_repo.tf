@@ -22,7 +22,7 @@ resource "github_repository" "NAME" {
   description = ""
 
   allow_rebase_merge     = false
-  delete_branch_on_merge = true       # clean up branches automatically after merge
+  delete_branch_on_merge = true # clean up branches automatically after merge
   has_downloads          = true
   has_issues             = true
   has_wiki               = false      # use a real wiki, don't let people write here
