@@ -12,6 +12,10 @@
 #  https://www.linkedin.com/in/HariSekhon
 #
 
+# ============================================================================ #
+#                               P r o v i d e r s
+# ============================================================================ #
+
 # ~> only allows last number (patch) to increment
 
 terraform {
@@ -44,9 +48,18 @@ terraform {
       source = "cloudflare/cloudflare"
     }
 
+    github = {
+      source  = "integrations/github"
+      version = "~> 4.0"
+    }
+
   }
 
 }
+
+# ============================================================================ #
+#                            Configure the Providers
+# ============================================================================ #
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs
 provider "aws" {
@@ -88,6 +101,8 @@ provider "cloudflare" {
 }
 
 provider "http" {}
+
+provider "github" {}
 
 # https://registry.terraform.io/providers/hashicorp/kubernetes/latest
 #provider "kubernetes" {}
