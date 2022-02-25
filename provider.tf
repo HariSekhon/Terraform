@@ -32,13 +32,13 @@ terraform {
       version = "~> 3.27"
     }
 
-    # https://www.terraform.io/docs/providers/google/index.html
+    # https://registry.terraform.io/providers/hashicorp/google/latest/docs
     google = {
       source  = "hashicorp/google"
       version = "~> 3.40.0"
     }
 
-    # https://www.terraform.io/docs/providers/azurerm/index.html
+    # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs
     azure = {
       source  = "hashicorp/azurerm"
       version = "~> 2.28.0"
@@ -71,7 +71,7 @@ provider "aws" {
   region  = var.region # eg. eu-west-2, gets this from variables.tf default or tfvars or TFC variables
 }
 
-# https://www.terraform.io/docs/providers/google/index.html
+# https://registry.terraform.io/providers/hashicorp/google/latest/docs
 provider "google" {
   project = var.project
   region  = var.region # eg. europe-west2
@@ -89,7 +89,7 @@ provider "google-beta" {
   region  = var.region
 }
 
-# https://www.terraform.io/docs/providers/azurerm/index.html
+# https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs
 provider "azurerm" {
   # set here in 0.12, set in required_providers in 0.13
   #version = "~> 2.28.0"
@@ -110,8 +110,8 @@ provider "github" {
   owner = "HariSekhon" # user or organization
 }
 
-# https://registry.terraform.io/providers/hashicorp/kubernetes/latest
+# https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs
 #provider "kubernetes" {}
 
-# https://registry.terraform.io/providers/hashicorp/helm/latest
+# https://registry.terraform.io/providers/hashicorp/helm/latest/docs
 #provider "helm" {}
