@@ -13,7 +13,7 @@
 #
 
 # ============================================================================ #
-#         G i t H u b   O r g a n i z a t i o n   P e r m i s s i o n s
+#          G i t H u b   A c t i o n s   O r g   P e r m i s s i o n s
 # ============================================================================ #
 
 # Lock down 3rd party github actions to avoid arbitrary unaudited code execution by devs
