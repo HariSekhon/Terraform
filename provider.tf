@@ -22,8 +22,8 @@ terraform {
 
   required_version = ">= 0.13"
 
-  # XXX: delete as necessary
   required_providers {
+    # XXX: delete as necessary
 
     # 0.13+
     # https://registry.terraform.io/providers/hashicorp/aws/latest/docs
@@ -44,10 +44,12 @@ terraform {
       version = "~> 2.28.0"
     }
 
+    # https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs
     cloudflare = {
       source = "cloudflare/cloudflare"
     }
 
+    # https://registry.terraform.io/providers/integrations/github/latest/docs
     github = {
       source  = "integrations/github"
       version = "~> 4.0"
@@ -102,7 +104,9 @@ provider "cloudflare" {
 
 provider "http" {}
 
+# https://registry.terraform.io/providers/integrations/github/latest/docs#argument-reference
 provider "github" {
+  #organization = "myorg" # higher precedence than owner, see doc link above
   owner = "HariSekhon" # user or organization
 }
 
