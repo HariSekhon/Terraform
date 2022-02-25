@@ -12,7 +12,19 @@
 #  https://www.linkedin.com/in/HariSekhon
 #
 
+# ============================================================================ #
+#                             G i t H u b   T e a m
+# ============================================================================ #
+
+# https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team
+
+# See this script to find any repos that exist in GitHub but not Terraform to find any manually created repos:
+#
+#   github_teams_not_in_terraform.sh
+#
+#     https://github.com/HariSekhon/DevOps-Bash-tools
+
 resource "github_team" "devops" {
   name    = "devops"
-  privacy = "secret"
+  privacy = "secret" # secret disallows org members enumerating members of this team, prefer this to closed
 }
