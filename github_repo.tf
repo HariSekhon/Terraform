@@ -32,7 +32,7 @@ resource "github_repository" "NAME" {
   delete_branch_on_merge = true # clean up branches automatically after merge
   has_downloads          = true
   has_issues             = true
-  has_wiki               = false      # use a real wiki, don't let people write here
+  has_wiki               = false     # use a real wiki, don't let people write here
   visibility             = "private" # or "public", or "internal" (available only in an Org)
   vulnerability_alerts   = true
 
