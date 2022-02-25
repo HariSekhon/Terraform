@@ -26,7 +26,7 @@ resource "github_repository" "NAME" {
   has_downloads          = true
   has_issues             = true
   has_wiki               = false      # use a real wiki, don't let people write here
-  visibility             = "internal" # only available in Org, otherwise 'private' or 'public'
+  visibility             = "private" # or "public", or "internal" (available only in an Org)
   vulnerability_alerts   = true
 
   topics = [
