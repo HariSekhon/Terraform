@@ -16,6 +16,11 @@
 #                             G i t H u b   R e p o
 # ============================================================================ #
 
+# See this script to find any repos that exist in GitHub but not Terraform to find any manually created repos:
+#
+#   github_repos_not_in_terraform.sh
+#
+#     https://github.com/HariSekhon/DevOps-Bash-tools
 
 resource "github_repository" "NAME" {
   name        = "NAME"
