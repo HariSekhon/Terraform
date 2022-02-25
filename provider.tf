@@ -104,7 +104,7 @@ provider "cloudflare" {
 
 provider "http" {}
 
-# https://registry.terraform.io/providers/integrations/github/latest/docs#argument-reference
+# https://registry.terraform.io/providers/integrations/github/latest/docs
 provider "github" {
   #organization = "myorg" # higher precedence than owner, see doc link above
   owner = "HariSekhon" # user or organization
