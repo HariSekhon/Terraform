@@ -16,6 +16,8 @@
 #                             G i t H u b   R e p o
 # ============================================================================ #
 
+# https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository
+
 # See this script to find any repos that exist in GitHub but not Terraform to find any manually created repos:
 #
 #   github_repos_not_in_terraform.sh
