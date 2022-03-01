@@ -43,17 +43,17 @@ resource "github_team_repository" "devops" {
 
 # manually list select repos a given team can access and then for_each it further down
 locals {
-  core_team_repos = [
+  devs_team_repos = [
     "myrepo1",
     "myrepo2",
   ]
 }
 
-resource "github_team_repository" "core-team" {
+resource "github_team_repository" "devs-team" {
   permission = "push"
-  for_each   = toset(local.core_team_repos)
+  for_each   = toset(local.devs_team_repos)
   repository = each.key
-  team_id    = github_team.core.id
+  team_id    = github_team.devs.id
 
   lifecycle {
     ignore_changes = [
