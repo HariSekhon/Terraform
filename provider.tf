@@ -55,6 +55,12 @@ terraform {
       version = "~> 4.0"
     }
 
+    # https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/data_source
+    external = {
+      source = "hashicorp/external"
+      version = "~> 2.2.0"
+    }
+
   }
 
 }
