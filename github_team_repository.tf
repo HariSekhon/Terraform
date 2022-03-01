@@ -54,6 +54,8 @@ resource "github_team_repository" "devs-team" {
   for_each   = toset(local.devs_team_repos)
   repository = each.key
   team_id    = github_team.devs.id
+  # if generated via a for_each as per adjacent github_team.tf
+  #team_id    = github_team.team["devs"].id
 
   lifecycle {
     ignore_changes = [
