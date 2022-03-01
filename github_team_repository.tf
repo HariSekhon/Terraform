@@ -33,6 +33,12 @@ resource "github_team_repository" "devops" {
   for_each   = data.external.github_repos.result
   repository = each.key
   team_id    = github_team.devops.id
+
+  lifecycle {
+    ignore_changes = [
+      etag,
+    ]
+  }
 }
 
 # manually list select repos a given team can access and then for_each it further down
@@ -48,4 +54,10 @@ resource "github_team_repository" "core-team" {
   for_each   = toset(local.core_team_repos)
   repository = each.key
   team_id    = github_team.core.id
+
+  lifecycle {
+    ignore_changes = [
+      etag,
+    ]
+  }
 }
