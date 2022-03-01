@@ -57,7 +57,7 @@ terraform {
 
     # https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/data_source
     external = {
-      source = "hashicorp/external"
+      source  = "hashicorp/external"
       version = "~> 2.2.0"
     }
 
