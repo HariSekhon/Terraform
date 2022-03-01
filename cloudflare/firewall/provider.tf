@@ -31,4 +31,5 @@ provider "cloudflare" {
   api_key = var.cloudflare_api_key
 }
 
-provider "http" {}
+# empty not required
+#provider "http" {}
