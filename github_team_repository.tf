@@ -35,7 +35,7 @@ resource "github_team_repository" "devops" {
   team_id    = github_team.devops.id
 }
 
-# manually
+# manually list select repos a given team can access and then for_each it further down
 locals {
   core_team_repos = [
     "myrepo1",
