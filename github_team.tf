@@ -24,7 +24,22 @@
 #
 #     https://github.com/HariSekhon/DevOps-Bash-tools
 
-resource "github_team" "devops" {
-  name    = "devops"
+locals {
+  github_teams = [
+    "team1",
+    "team2",
+  ]
+}
+
+resource "github_team" "team" {
+  for_each = toset(local.github_teams)
+  name     = each.key
+
   privacy = "secret" # secret disallows org members enumerating members of this team, prefer this to closed
+
+  lifecycle {
+    ignore_changes = [
+      etag,
+    ]
+  }
 }
