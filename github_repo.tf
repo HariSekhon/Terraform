@@ -38,4 +38,10 @@ resource "github_repository" "NAME" {
 
   topics = [
   ]
+
+  lifecycle {
+    ignore_changes = [
+      etag,
+    ]
+  }
 }
