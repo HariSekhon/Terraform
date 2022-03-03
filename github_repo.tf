@@ -24,6 +24,10 @@
 #
 #     https://github.com/HariSekhon/DevOps-Bash-tools
 
+# See Also:
+#
+#   github_repo/ - module version so you don't have to repeat all these settings for every github_repository resource
+
 resource "github_repository" "NAME" {
   name        = "NAME"
   description = ""
