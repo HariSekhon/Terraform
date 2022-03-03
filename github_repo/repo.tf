@@ -33,8 +33,8 @@ resource "github_repository" "repo" {
   delete_branch_on_merge = true # clean up branches automatically after merge
   has_downloads          = true
   has_issues             = true
-  has_wiki               = false  # use a real wiki, don't let people write here
-  visibility             = var.visibility  # allow this to be variable in case you want some variation of public/private/internal repos
+  has_wiki               = false          # use a real wiki, don't let people write here
+  visibility             = var.visibility # allow this to be variable in case you want some variation of public/private/internal repos
   vulnerability_alerts   = true
 
   topics = var.topics
