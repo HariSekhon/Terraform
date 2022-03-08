@@ -21,20 +21,20 @@ data "external" "github_repos_node_ids" {
   program = ["/path/to/devops-bash-tools/terraform_resources.sh", "github_repository", "node_ids"]
 }
 
-
-resource "github_branch" "main" {
-  # not supported as of 1.1.x :'-(
-  #for_each   = github_repository[*].name
-  for_each   = data.external.github_repos.result
-  repository = each.key
-  branch     = "main"
-
-  lifecycle {
-    ignore_changes = [
-      etag,
-    ]
-  }
-}
+# only useful to create subsequent branches, errors out if trying to create initial main branch, must use auto_init in github_repo instead
+#resource "github_branch" "dev" {
+#  # not supported as of 1.1.x :'-(
+#  #for_each   = github_repository[*].name
+#  for_each   = data.external.github_repos.result
+#  repository = each.key
+#  branch     = "main"
+#
+#  lifecycle {
+#    ignore_changes = [
+#      etag,
+#    ]
+#  }
+#}
 
 resource "github_branch_default" "main" {
   for_each   = data.external.github_repos.result
