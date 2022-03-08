@@ -16,6 +16,8 @@
 #                GitHub Branch, Default & Branch Protection Rules
 # ============================================================================ #
 
+# XXX: This is better done in github_repo module with self references for proper dependency ordering (can't depends_on dynamic generated references, must be statically resolvable)
+
 data "external" "github_repos_node_ids" {
   # https://github.com/HariSekhon/DevOps-Bash-tools
   program = ["/path/to/devops-bash-tools/terraform_resources.sh", "github_repository", "node_ids"]
