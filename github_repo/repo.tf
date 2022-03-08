@@ -28,6 +28,9 @@ resource "github_repository" "repo" {
   name        = var.name
   description = var.description
 
+  # initial commit creates default branch so that branch protection can be applied (errors out otherwise)
+  auto_init = true
+
   # this module is really just to avoid duplicating all these settings you may want to standardize across all repos without repetition
   allow_rebase_merge     = false
   delete_branch_on_merge = true # clean up branches automatically after merge
