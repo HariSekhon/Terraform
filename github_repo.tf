@@ -32,6 +32,9 @@ resource "github_repository" "NAME" {
   name        = "NAME"
   description = ""
 
+  # initial commit creates default branch so that branch protection can be applied (errors out otherwise)
+  auto_init = true
+
   allow_rebase_merge     = false
   delete_branch_on_merge = true # clean up branches automatically after merge
   has_downloads          = true
