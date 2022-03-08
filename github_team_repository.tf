@@ -16,7 +16,7 @@
 #                      GitHub Teams Repository Permissions
 # ============================================================================ #
 
-# XXX: better done in github_repo/ module using self-references
+# XXX: This is better done in github_repo module with self references for proper dependency ordering (can't depends_on dynamic generated references, must be statically resolvable)
 
 # works around Terraform splat expressions not supporting top-level resource globbing of 1.1.x :'-(
 #
