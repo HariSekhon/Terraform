@@ -16,7 +16,32 @@
 #                      GitHub Teams Repository Permissions
 # ============================================================================ #
 
-# XXX: This is better done in github_repo module with self references for proper dependency ordering (can't depends_on dynamic generated references, must be statically resolvable)
+
+# manually list select repos a given team can access and then for_each it further down
+locals {
+  devs_team_repos = [
+    "myrepo1",
+    "myrepo2",
+  ]
+}
+
+resource "github_team_repository" "devs-team" {
+  permission = "push"
+  for_each   = toset(local.devs_team_repos)
+  repository = each.key
+  team_id    = github_team.devs.id
+  # if generated via a for_each as per adjacent github_team.tf
+  #team_id    = github_team.team["devs"].id
+
+  lifecycle {
+    ignore_changes = [
+      etag,
+    ]
+  }
+}
+
+# ============================================================================ #
+# XXX: Dynamically adding team to all repos is better done in github_repo module with self references for proper dependency ordering (can't depends_on dynamic generated references, must be statically resolvable)
 
 # works around Terraform splat expressions not supporting top-level resource globbing of 1.1.x :'-(
 #
@@ -35,29 +60,6 @@ resource "github_team_repository" "devops" {
   for_each   = data.external.github_repos.result
   repository = each.key
   team_id    = github_team.devops.id
-
-  lifecycle {
-    ignore_changes = [
-      etag,
-    ]
-  }
-}
-
-# manually list select repos a given team can access and then for_each it further down
-locals {
-  devs_team_repos = [
-    "myrepo1",
-    "myrepo2",
-  ]
-}
-
-resource "github_team_repository" "devs-team" {
-  permission = "push"
-  for_each   = toset(local.devs_team_repos)
-  repository = each.key
-  team_id    = github_team.devs.id
-  # if generated via a for_each as per adjacent github_team.tf
-  #team_id    = github_team.team["devs"].id
 
   lifecycle {
     ignore_changes = [
