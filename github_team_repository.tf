@@ -16,6 +16,8 @@
 #                      GitHub Teams Repository Permissions
 # ============================================================================ #
 
+# XXX: better done in github_repo/ module using self-references
+
 # works around Terraform splat expressions not supporting top-level resource globbing of 1.1.x :'-(
 #
 #    https://github.com/hashicorp/terraform/issues/19931
