@@ -62,6 +62,7 @@ resource "github_team_repository" "devops" {
   team_id    = github_team.devops.id
 
   lifecycle {
+    # XXX: doesn't prevent destroy when the entire resource code block is removed!
     prevent_destroy = true
     ignore_changes = [
       etag,

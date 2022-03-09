@@ -32,6 +32,7 @@ data "external" "github_repos_node_ids" {
 #  branch     = "main"
 #
 #  lifecycle {
+     # XXX: doesn't prevent destroy when the entire resource code block is removed!
 #    prevent_destroy = true
 #    ignore_changes = [
 #      etag,
@@ -64,6 +65,7 @@ resource "github_branch_protection" "main" {
   #}
   # may want to add to this on a per repo basis and not have it standardized
   lifecycle {
+    # XXX: doesn't prevent destroy when the entire resource code block is removed!
     prevent_destroy = true
     ignore_changes = [
       required_status_checks

@@ -23,6 +23,7 @@ resource "github_team_repository" "platform-engineering" {
   team_id    = "platform-engineering" # team slug
 
   lifecycle {
+    # XXX: doesn't prevent destroy when the entire resource code block is removed!
     prevent_destroy = true
     ignore_changes = [
       etag,

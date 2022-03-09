@@ -38,6 +38,7 @@ resource "github_actions_organization_permissions" "MYORG" {
   #  repository_ids = [github_repository.example.repo_id]
   #}
   lifecycle {
+    # XXX: doesn't prevent destroy when the entire resource code block is removed!
     prevent_destroy = true
   }
   # may want to add to this on a per repo basis and not have it standardized

@@ -50,6 +50,7 @@ resource "github_branch_protection" "main" {
   #  contexts = []
   #}
   lifecycle {
+    # XXX: doesn't prevent destroy when the entire resource code block is removed!
     prevent_destroy = true
     ignore_changes = [
       # may want to add to this on a per repo basis and not have it standardized

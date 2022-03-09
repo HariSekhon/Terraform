@@ -38,6 +38,7 @@ resource "github_team" "team" {
   privacy = "secret" # secret disallows org members enumerating members of this team, prefer this to closed
 
   lifecycle {
+    # XXX: doesn't prevent destroy when the entire resource code block is removed!
     prevent_destroy = true
     ignore_changes = [
       etag,
