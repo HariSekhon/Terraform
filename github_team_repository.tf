@@ -34,7 +34,6 @@ resource "github_team_repository" "devs-team" {
   #team_id    = github_team.team["devs"].id
 
   lifecycle {
-    prevent_destroy = true
     ignore_changes = [
       etag,
     ]
