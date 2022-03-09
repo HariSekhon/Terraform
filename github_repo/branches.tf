@@ -49,9 +49,10 @@ resource "github_branch_protection" "main" {
   #  strict   = false
   #  contexts = []
   #}
-  # may want to add to this on a per repo basis and not have it standardized
   lifecycle {
+    prevent_destroy = true
     ignore_changes = [
+    # may want to add to this on a per repo basis and not have it standardized
       required_status_checks
     ]
   }

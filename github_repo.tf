@@ -47,6 +47,7 @@ resource "github_repository" "NAME" {
   ]
 
   lifecycle {
+    prevent_destroy = true
     ignore_changes = [
       etag,
     ]

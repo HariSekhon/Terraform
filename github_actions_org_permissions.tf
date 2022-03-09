@@ -37,4 +37,8 @@ resource "github_actions_organization_permissions" "MYORG" {
   #enabled_repositories_config {
   #  repository_ids = [github_repository.example.repo_id]
   #}
+  lifecycle {
+    prevent_destroy = true
+  }
+  # may want to add to this on a per repo basis and not have it standardized
 }
