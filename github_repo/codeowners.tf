@@ -17,13 +17,21 @@
 # ============================================================================ #
 
 resource "github_repository_file" "codeowners" {
-  repository          = github_repository.repo.name
-  branch              = "main" # or "master"
-  file                = ".github/CODEOWNERS"
-  content             = ".github/ @myorg/devops-team" # XXX: Edit
-  commit_message      = "CODEOWNERS managed by Terraform"
+  repository     = github_repository.repo.name
+  branch         = "main" # or "master"
+  file           = ".github/CODEOWNERS"
+  #content       = ".github/ @myorg/devops-team"
+  # permit override in module caller
+  content        = "%{if var.codeowners != ""}${var.codeowners}%{else}.github/ @MYORG/DEVOPS-TEAM%{endif}" # XXX: Edit
+  commit_message = "CODEOWNERS managed by Terraform"
   # requires both or neither - uses the account owning the github token as the author if omitted
-  #commit_author       = "Terraform"
-  #commit_email        = "terraform@MYCOMPANY.COM"
+  #commit_author = "Terraform"
+  #commit_email  = "terraform@MYCOMPANY.COM"
   overwrite_on_create = true
+
+  lifecycle {
+    ignore_changes = [
+      commit_message
+    ]
+  }
 }
