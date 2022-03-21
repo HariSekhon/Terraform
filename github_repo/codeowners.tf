@@ -21,7 +21,7 @@ resource "github_repository_file" "codeowners" {
   branch              = "main" # or "master"
   file                = ".github/CODEOWNERS"
   content             = ".github/ @myorg/devops-team" # XXX: Edit
-  commit_message      = "Managed by Terraform"
+  commit_message      = "CODEOWNERS managed by Terraform"
   # requires both or neither - uses the account owning the github token as the author if omitted
   #commit_author       = "Terraform"
   #commit_email        = "terraform@MYCOMPANY.COM"
