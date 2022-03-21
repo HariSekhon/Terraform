@@ -17,3 +17,7 @@ variable "pages" {
   type    = list(object({ branch = string, path = string }))
   default = []
 }
+variable "codeowners" {
+  type    = string
+  default = ""
+}
