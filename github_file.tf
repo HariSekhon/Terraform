@@ -21,13 +21,19 @@
 # https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_file#commit_email
 
 resource "github_repository_file" "MYFILE" {
-  repository          = github_repository.foo.name
-  branch              = "main" # or "master"
-  file                = ".gitignore"
-  content             = "**/*.tfstate"
-  commit_message      = "Managed by Terraform"
+  repository     = github_repository.foo.name
+  branch         = "main" # or "master"
+  file           = ".gitignore"
+  content        = "**/*.tfstate"
+  commit_message = "Managed by Terraform"
   # requires both or neither - uses the account owning the github token as the author if omitted
-  #commit_author       = "Terraform"
-  #commit_email        = "terraform@MYCOMPANY.COM"
+  #commit_author = "Terraform"
+  #commit_email  = "terraform@MYCOMPANY.COM"
   overwrite_on_create = true
+
+  lifecycle {
+    ignore_changes = [
+      commit_message
+    ]
+  }
 }
