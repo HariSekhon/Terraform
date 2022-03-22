@@ -17,9 +17,9 @@
 # ============================================================================ #
 
 resource "github_repository_file" "codeowners" {
-  repository     = github_repository.repo.name
-  branch         = "main" # or "master"
-  file           = ".github/CODEOWNERS"
+  repository = github_repository.repo.name
+  branch     = "main" # or "master"
+  file       = ".github/CODEOWNERS"
   #content       = ".github/ @myorg/devops-team"
   # permit override in module caller
   content        = "%{if var.codeowners != ""}${var.codeowners}%{else}.github/ @MYORG/DEVOPS-TEAM%{endif}" # XXX: Edit
