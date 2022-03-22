@@ -33,7 +33,8 @@ resource "github_repository_file" "MYFILE" {
 
   lifecycle {
     ignore_changes = [
-      commit_message
+      commit_message,
+      overwrite_on_create
     ]
   }
 }
