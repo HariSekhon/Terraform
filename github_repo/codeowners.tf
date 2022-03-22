@@ -31,7 +31,8 @@ resource "github_repository_file" "codeowners" {
 
   lifecycle {
     ignore_changes = [
-      commit_message
+      commit_message,
+      overwrite_on_create
     ]
   }
 }
