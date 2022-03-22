@@ -16,6 +16,8 @@
 #                            Individual Collaborators
 # ============================================================================ #
 
+# https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_collaborator
+
 resource "github_repository_collaborator" "ci" {
   repository = github_repository.repo.id
   username   = "my-ci-machine-user"
