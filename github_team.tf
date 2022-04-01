@@ -35,7 +35,7 @@ resource "github_team" "team" {
   for_each = toset(local.github_teams)
   name     = each.key
 
-  privacy = "closed" # not secret, otherwise can't be @ mentioned or used in CODEOWNERS
+  privacy = "closed" # must be "closed", not "secret", otherwise can't be @mentioned or used in CODEOWNERS for auto PR review requests
 
   lifecycle {
     # XXX: doesn't prevent destroy when the entire resource code block is removed!
