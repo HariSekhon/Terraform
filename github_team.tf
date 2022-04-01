@@ -35,7 +35,7 @@ resource "github_team" "team" {
   for_each = toset(local.github_teams)
   name     = each.key
 
-  privacy = "secret" # secret disallows org members enumerating members of this team, prefer this to closed
+  privacy = "closed" # not secret, otherwise can't be @ mentioned or used in CODEOWNERS
 
   lifecycle {
     # XXX: doesn't prevent destroy when the entire resource code block is removed!
