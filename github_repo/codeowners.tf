@@ -26,7 +26,7 @@ resource "github_repository_file" "codeowners" {
   #content       = ".github/ @myorg/devops-team"
   # ensure there is a newline at end of file via EOT style so people with IDEs or pre-commit hooks aren't changing the file during PRs
   # XXX: Edit the MYORG/DEVOPS-TEAM with your actual github team (which must be Visible aka "closed" in Terraform)
-  content             = <<EOF
+  content        = <<EOF
 # Managed by Terraform - DO NOT EDIT
 %{if var.codeowners != ""}${var.codeowners}%{else}.github/ @MYORG/DEVOPS-TEAM%{endif}
 EOF
