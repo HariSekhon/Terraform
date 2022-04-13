@@ -25,7 +25,7 @@ resource "github_repository_file" "codeowners" {
   #content       = ".github/ @myorg/devops-team"
   # permit codeowners override in module caller
   # XXX: Edit the MYORG/DEVOPS-TEAM with your actual github team (which must be Visible aka "closed" in Terraform)
-  content             = <<EOF
+  content        = <<EOF
 # Managed by Terraform - DO NOT EDIT
 %{if var.codeowners != ""}${var.codeowners}%{else}.github/ @MYORG/DEVOPS-TEAM%{endif}
 EOF
