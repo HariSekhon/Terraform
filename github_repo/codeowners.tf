@@ -23,8 +23,12 @@ resource "github_repository_file" "codeowners" {
   branch     = "main" # or "master"
   file       = ".github/CODEOWNERS"
   #content       = ".github/ @myorg/devops-team"
-  # permit override in module caller
-  content        = "%{if var.codeowners != ""}${var.codeowners}%{else}.github/ @MYORG/DEVOPS-TEAM%{endif}" # XXX: Edit
+  # permit codeowners override in module caller
+  # XXX: Edit the MYORG/DEVOPS-TEAM with your actual github team (which must be Visible aka "closed" in Terraform)
+  content             = <<EOF
+# Managed by Terraform - DO NOT EDIT
+%{if var.codeowners != ""}${var.codeowners}%{else}.github/ @MYORG/DEVOPS-TEAM%{endif}
+EOF
   commit_message = "CODEOWNERS managed by Terraform"
   # requires both or neither - uses the account owning the github token as the author if omitted
   #commit_author = "Terraform"
