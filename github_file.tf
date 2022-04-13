@@ -25,7 +25,12 @@ resource "github_repository_file" "MYFILE" {
   branch         = "main" # or "master"
   file           = ".gitignore"
   content        = "**/*.tfstate"
-  commit_message = "Managed by Terraform"
+  #commit_message = "Managed by Terraform"
+  # ensure there is a newline at end of file via EOT style so people with IDEs or pre-commit hooks aren't changing the file during PRs
+  content             = <<EOF
+# Managed by Terraform - DO NOT EDIT
+PUT YOUR CONTENT HERE IN TERRAFORM
+EOF
   # requires both or neither - uses the account owning the github token as the author if omitted
   #commit_author = "Terraform"
   #commit_email  = "terraform@MYCOMPANY.COM"
