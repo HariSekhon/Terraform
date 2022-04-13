@@ -22,8 +22,9 @@ resource "github_repository_file" "codeowners" {
   repository = github_repository.repo.name
   branch     = "main" # or "master"
   file       = ".github/CODEOWNERS"
+  # permit codeowners override in module caller using var below instead
   #content       = ".github/ @myorg/devops-team"
-  # permit codeowners override in module caller
+  # ensure there is a newline at end of file via EOT style so people with IDEs or pre-commit hooks aren't changing the file during PRs
   # XXX: Edit the MYORG/DEVOPS-TEAM with your actual github team (which must be Visible aka "closed" in Terraform)
   content             = <<EOF
 # Managed by Terraform - DO NOT EDIT
