@@ -32,6 +32,7 @@ resource "github_repository" "repo" {
   auto_init = true
 
   # this module is really just to avoid duplicating all these settings you may want to standardize across all repos without repetition
+  allow_auto_merge       = true
   allow_rebase_merge     = false
   delete_branch_on_merge = true # clean up branches automatically after merge
   has_downloads          = true
