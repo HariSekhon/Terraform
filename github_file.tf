@@ -21,12 +21,12 @@
 # https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_file#commit_email
 
 resource "github_repository_file" "MYFILE" {
-  repository     = github_repository.foo.name
-  branch         = "main" # or "master"
-  file           = ".gitignore"
+  repository = github_repository.foo.name
+  branch     = "main" # or "master"
+  file       = ".gitignore"
   #content        = "**/*.tfstate"
   # ensure there is a newline at end of file via EOT style so people with IDEs or pre-commit hooks aren't changing the file during PRs
-  content             = <<EOF
+  content = <<EOF
 # Managed by Terraform - DO NOT EDIT
 PUT YOUR CONTENT HERE IN TERRAFORM
 EOF
