@@ -114,8 +114,12 @@ provider "http" {}
 provider "github" {
   #organization = "myorg" # higher precedence than owner, see doc link above
   owner = "HariSekhon" # user or organization
-  # throttle to avoid hitting GitHub API rate limits with long back-offs
+  # throttle to avoid hitting GitHub API rate limits with long 1 hour back-offs causing hours of hanging
+  #
+  #   https://github.com/integrations/terraform-provider-github/issues/1153
+  #
   # calculated from 15,000 reqs/hour for GitHub Enterprise - 15000 / 3600 = 4 or 5 reqs per second => 200ms throttle
+  #
   read_delay_ms  = 200 # ms
   write_delay_ms = 200 # ms
 }
