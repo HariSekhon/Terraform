@@ -52,7 +52,7 @@ terraform {
     # https://registry.terraform.io/providers/integrations/github/latest/docs
     github = {
       source  = "integrations/github"
-      version = "~> 4.0"
+      version = "~> 4.24.1"
     }
 
     # https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/data_source
@@ -114,6 +114,10 @@ provider "http" {}
 provider "github" {
   #organization = "myorg" # higher precedence than owner, see doc link above
   owner = "HariSekhon" # user or organization
+  # throttle to avoid hitting GitHub API rate limits with long back-offs
+  # calculated from 15,000 reqs/hour for GitHub Enterprise - 15000 / 3600 = 4 or 5 reqs per second => 200ms throttle
+  read_delay_ms  = 200 # ms
+  write_delay_ms = 200 # ms
 }
 
 # https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs
