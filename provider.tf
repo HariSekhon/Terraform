@@ -120,8 +120,8 @@ provider "github" {
   #
   # calculated from 15,000 reqs/hour for GitHub Enterprise - 15000 / 3600 = 4 or 5 reqs per second => 200ms throttle
   #
-  read_delay_ms  = 200 # ms
-  write_delay_ms = 200 # ms
+  #read_delay_ms  = 200 # ms
+  #write_delay_ms = 200 # ms
 }
 
 # https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs
