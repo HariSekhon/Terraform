@@ -21,3 +21,7 @@ variable "codeowners" {
   type    = string
   default = ""
 }
+variable "ci_permission" {
+  type    = string
+  default = "pull"
+}

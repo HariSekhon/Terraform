@@ -54,3 +54,10 @@ resource "github_repository" "NAME" {
     ]
   }
 }
+
+# or using the adjacent module to standardize + deduplicate common settings
+module "repo-NAME" {
+  source      = "../modules/github_repo"
+  name        = "NAME"
+  description = ""
+}
