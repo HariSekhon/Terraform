@@ -21,5 +21,5 @@
 resource "github_repository_collaborator" "ci" {
   repository = github_repository.repo.id
   username   = "my-ci-machine-user"
-  permission = "${var.ci_permission}"
+  permission = var.ci_permission
 }
