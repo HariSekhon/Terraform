@@ -16,6 +16,10 @@
 #                       G i t H u b   C o d e O w n e r s
 # ============================================================================ #
 
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+#
+# https://git-scm.com/docs/gitignore#_pattern_format
+
 # teams must be set to "closed" (visible in the UI), not "secret", otherwise they'll appear in PR draft but disappear in PR, looking like a bug, but it's expected behaviour, team visibility is a requirement
 
 resource "github_repository_file" "codeowners" {
