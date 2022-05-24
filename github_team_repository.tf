@@ -32,12 +32,6 @@ resource "github_team_repository" "devs-team" {
   team_id    = github_team.devs.id
   # if generated via a for_each as per adjacent github_team.tf
   #team_id    = github_team.team["devs"].id
-
-  lifecycle {
-    ignore_changes = [
-      etag,
-    ]
-  }
 }
 
 # ============================================================================ #
@@ -64,8 +58,5 @@ resource "github_team_repository" "devops" {
   lifecycle {
     # XXX: doesn't prevent destroy when the entire resource code block is removed!
     prevent_destroy = true
-    ignore_changes = [
-      etag,
-    ]
   }
 }
