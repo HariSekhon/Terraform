@@ -34,9 +34,6 @@ data "external" "github_repos_node_ids" {
 #  lifecycle {
 # XXX: doesn't prevent destroy when the entire resource code block is removed!
 #    prevent_destroy = true
-#    ignore_changes = [
-#      etag,
-#    ]
 #  }
 #}
 
