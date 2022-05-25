@@ -33,15 +33,19 @@ resource "github_repository_file" "codeowners" {
   #%{if var.codeowners != ""}${var.codeowners}%{else}.github/ @MYORG/DEVOPS-TEAM%{endif}
   content        = <<EOF
 # Managed by Terraform - DO NOT EDIT
+CODEOWNERS          @MYORG/DEVOPS-TEAM
 .github/            @MYORG/DEVOPS-TEAM
 **devops**          @MYORG/DEVOPS-TEAM
 **infrastructure**  @MYORG/DEVOPS-TEAM
 **infra**           @MYORG/DEVOPS-TEAM
 **terraform**       @MYORG/DEVOPS-TEAM
-**Dockerfile**      @MYORG/DEVOPS-TEAM
 **docker**          @MYORG/DEVOPS-TEAM
-**k8s**             @MYORG/DEVOPS-TEAM
 **kubernetes**      @MYORG/DEVOPS-TEAM
+**k8s**             @MYORG/DEVOPS-TEAM
+**Dockerfile**      @MYORG/DEVOPS-TEAM
+**Jenkinsfile**     @MYORG/DEVOPS-TEAM
+**cloudbuild.y*ml** @MYORG/DEVOPS-TEAM
+**.envrc**          @MYORG/DEVOPS-TEAM
 ${var.codeowners}
 EOF
   commit_message = "CODEOWNERS managed by Terraform"
