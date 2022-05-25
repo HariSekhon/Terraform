@@ -38,6 +38,7 @@ resource "github_repository_file" "codeowners" {
 **infrastructure**  @MYORG/DEVOPS-TEAM
 **infra**           @MYORG/DEVOPS-TEAM
 **terraform**       @MYORG/DEVOPS-TEAM
+**Dockerfile**      @MYORG/DEVOPS-TEAM
 **docker**          @MYORG/DEVOPS-TEAM
 **k8s**             @MYORG/DEVOPS-TEAM
 **kubernetes**      @MYORG/DEVOPS-TEAM
