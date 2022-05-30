@@ -71,9 +71,10 @@ resource "aws_sns_topic_subscription" "aws-charges" {
   topic_arn = aws_sns_topic.aws-charges.arn
   protocol  = "email"
   endpoint  = var.email
-  lifecycle {
-    ignore_changes = [pending_confirmation]
-  }
+  # no longer needed in Terraform 1.2.0
+  #lifecycle {
+  #  ignore_changes = [pending_confirmation]
+  #}
 }
 
 data "aws_sns_topic" "aws-charges" {
