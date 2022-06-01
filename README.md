@@ -14,7 +14,6 @@ Terraform Templates
 [![Semgrep](https://github.com/HariSekhon/Terraform/actions/workflows/semgrep.yaml/badge.svg)](https://github.com/HariSekhon/Terraform/actions/workflows/semgrep.yaml)
 [![Checkov](https://github.com/HariSekhon/Terraform/actions/workflows/checkov.yaml/badge.svg)](https://github.com/HariSekhon/Terraform/actions/workflows/checkov.yaml)
 [![Kics](https://github.com/HariSekhon/Terraform/actions/workflows/kics.yaml/badge.svg)](https://github.com/HariSekhon/Terraform/actions/workflows/kics.yaml)
-[![URL Links](https://github.com/HariSekhon/Terraform/actions/workflows/url_links.yaml/badge.svg)](https://github.com/HariSekhon/Terraform/actions/workflows/url_links.yaml)
 [![Travis CI](https://img.shields.io/badge/TravisCI-ready-blue?logo=travis&label=Travis%20CI)](https://github.com/HariSekhon/Terraform/blob/master/.travis.yml)
 
 [![Repo on Azure DevOps](https://img.shields.io/badge/repo-Azure%20DevOps-0078D7?logo=azure%20devops)](https://dev.azure.com/harisekhon/GitHub/_git/Terraform)
