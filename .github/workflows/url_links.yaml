@@ -1,0 +1,53 @@
+#
+#  Author: Hari Sekhon
+#  Date: 2022-01-26 14:10:12 +0000 (Wed, 26 Jan 2022)
+#
+#  vim:ts=2:sts=2:sw=2:et
+#
+#  https://github.com/HariSekhon/Terraform
+#
+#  If you're using my code you're welcome to connect with me on LinkedIn and optionally send me feedback
+#
+#  https://www.linkedin.com/in/HariSekhon
+#
+
+---
+name: URL Links
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  pull_request:
+    branches:
+      - master
+      - main
+  workflow_dispatch:
+    inputs:
+      debug:
+        type: boolean
+        required: false
+        default: false
+  schedule:
+    - cron: '0 0 * * 1'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  url_links:
+    if: github.event.repository.fork == false
+    name: URL Links
+    uses: HariSekhon/GitHub-Actions/.github/workflows/url_links.yaml@master
+    with:
+      ignore_urls_without_dots: 'true'  # any value enables this
+      url_links_ignored: |
+        https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv
+        somerepository.com
+        mycompany
+        https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK
