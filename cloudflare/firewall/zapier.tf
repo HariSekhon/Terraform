@@ -20,8 +20,6 @@
 #
 # Looks like Zapier is coming from IP addresses that aren't found in any AWS IP range in the API (as fetched by aws_ip_ranges.sh in https://github.com/HariSekhon/DevOps-Bash-tools repo)
 
-# https://community.zapier.com/general-questions-3/zapier-server-ip-list-1919
-
 # https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/firewall_rule
 
 # duplicates provider.tf
