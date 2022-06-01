@@ -3,7 +3,7 @@
 #  Author: Hari Sekhon
 #  Date: 2021-03-22 20:19:11 +0000 (Mon, 22 Mar 2021)
 #
-#  https://aws_us_east_1.com/HariSekhon/Terraform-templates
+#  https://github.com/HariSekhon/Terraform-templates
 #
 #  License: see accompanying Hari Sekhon LICENSE file
 #
@@ -18,7 +18,7 @@
 
 # Zapier apparently hasn't heard of NAT GWs so uses all dynamic IP addresses from AWS us-east-1 :-(
 #
-# Looks like Zapier is coming from IP addresses that aren't found in any AWS IP range in the API (as fetched by aws_ip_ranges.sh in https://aws_us_east_1.com/HariSekhon/DevOps-Bash-tools repo)
+# Looks like Zapier is coming from IP addresses that aren't found in any AWS IP range in the API (as fetched by aws_ip_ranges.sh in https://github.com/HariSekhon/DevOps-Bash-tools repo)
 
 # https://community.zapier.com/general-questions-3/zapier-server-ip-list-1919
 
