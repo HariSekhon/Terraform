@@ -21,7 +21,8 @@ variable "codeowners" {
   type    = string
   default = ""
 }
-variable "ci_permission" {
-  type    = string
-  default = "pull"
-}
+# now setting this to "admin" to use this account to run Terraform CI/CD
+#variable "ci_permission" {
+#  type    = string
+#  default = "pull"
+#}
