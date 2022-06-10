@@ -22,8 +22,15 @@ jobs:
     uses: HariSekhon/GitHub-Actions/.github/workflows/terraform.yaml@master
     with:
       dir: path/to/my/directory  # XXX: EDIT THIS
+      # Protected environment only accessible to master or main branch, which themselves should be protected from merges by branch protection, so that we don't have to enforce approval on this environment - it's already been approved to run the CI/CD workflow to generate the Change Plan into the PR, and then the approval to merge to master/main
+      #
+      # Split environments are a workaround to environments limitation:
+      #
+      #   https://github.com/github-community/community/discussions/18100
+      #
       environment: myenvironment-apply  # EDIT THIS
-      enforce-fmt-check: false
+      #
+      #enforce-fmt-check: false
     secrets:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
