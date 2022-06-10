@@ -1,0 +1,31 @@
+# vim:ts=2:sts=2:sw=2:et:filetype=yaml
+---
+name: Terraform NAME Plan  # XXX: EDIT THIS
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'path/to/my/directory/**.tf'  # XXX: EDIT THIS
+      - .github/workflows/terraform-NAME-plan.yaml  # XXX: EDIT THIS
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  terraform:
+    name: Terraform
+    uses: HariSekhon/GitHub-Actions/.github/workflows/terraform.yaml@master
+    with:
+      dir: path/to/my/directory  # XXX: EDIT THIS
+      environment: myenvironment-plan  # EDIT THIS
+      enforce-fmt-check: false
+    secrets:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+      # if applying to manage GitHub
+      #GH_TOKEN: ${{ secrets.GH_TOKEN }}
