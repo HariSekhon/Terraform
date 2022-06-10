@@ -22,6 +22,7 @@ jobs:
     uses: HariSekhon/GitHub-Actions/.github/workflows/terraform.yaml@master
     with:
       dir: path/to/my/directory  # XXX: EDIT THIS
+      #
       # Protected environment only accessible to master or main branch, which themselves should be protected from merges by branch protection, so that we don't have to enforce approval on this environment - it's already been approved to run the CI/CD workflow to generate the Change Plan into the PR, and then the approval to merge to master/main
       #
       # Split environments are a workaround to environments limitation:
