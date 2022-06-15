@@ -30,6 +30,7 @@ jobs:
       #
       environment: myenvironment-plan  # EDIT THIS
       #
+      plan-only: true
       #enforce-fmt-check: false
     secrets:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
