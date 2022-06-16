@@ -92,7 +92,7 @@ Example:
 
 `terraform taint <full_path_of_resource_in_terraform_state>`
 
-### See Also
+## Related Repositories
 
 - [Kubernetes configs](https://github.com/HariSekhon/Kubernetes-configs) - Kubernetes YAML configs - Best Practices, Tips & Tricks are baked right into the templates for future deployments
 
