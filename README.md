@@ -75,6 +75,22 @@ Instantly creates and opens all standard files for a Terraform deployment in you
 
 all heavily commented to get a new Terraform environment up and running quickly - with links to things like AWS / GCP regions, Terraform backend providers, state locking etc.
 
+## Troubleshooting
+
+#### DeleteConflict: Recreating Resources with Dependencies That Do Not Permit Deletion
+
+Example:
+`│Error: error deleting IAM policy arn:aws:iam::***:policy/MYPOLICY: DeleteConflict: Cannot delete a policy attached to entities.`
+
+The Terraform AWS Provider does not help you when you recreate a resource that another resources depends on, such as recreating an IAM policy due to a rename, while it is still attached to a role, or recreating an AWS Batch compute environment while it's still attached to queues.
+
+Unfortunately the Terraform AWS Provider isn't smart enough to know that for such dependencies with AWS specific API constraints that it should simply detach, and then reattach afterwards.
+
+The quickest solution / workaround is to find the dependent resources, and `terraform taint` them so that they are destroyed first using the generic implicit Terraform dependency ordering, eg. the role gets deleted first for recreation because its tainted, then the IAM policy is deleted and recreated with the new name, and then the role is recreated and attached to the new policy.
+
+Example:
+
+`terraform taint <full_path_of_resource_in_terraform_state>`
 
 ### See Also
 
