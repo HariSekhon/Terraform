@@ -91,7 +91,7 @@ Example:
 
 `terraform taint <full_path_of_resource_in_terraform_state>`
 
-## Production Grade Terraform CI/CD
+## Terraform CI/CD
 
 Production-grade Terraform CI/CD pipelines can be found for Jenkins and GitHub Actions in my adjacent repos:
 
