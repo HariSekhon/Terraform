@@ -105,7 +105,7 @@ Production-grade Terraform CI/CD pipelines can be found for Jenkins and GitHub A
   - skips intermediate queued runs for efficiency
 
 - [GitHub Actions](https://github.com/HariSekhon/GitHub-Actions) - similar to above, plus:
-  - optional environment / approvals (protects admin credentials for things like GitHub which don't have read-only creds)
+  - optional environment / approvals (protects admin credentials for things like GitHub which doesn't have read-only repo API tokens)
   - posts the full `terraform plan` result into the Pull Request that triggered the workflow, along with the status of `fmt` & `validate`
   - applies once Pull Request is merged to the default branch or master or main
 
