@@ -91,6 +91,14 @@ Example:
 
 `terraform taint <full_path_of_resource_in_terraform_state>`
 
+## Production Grade Terraform CI/CD
+
+Production-grade Terraform CI/CD pipelines can be found for Jenkins and GitHub Actions in my adjacent repos:
+
+- [Jenkins](https://github.com/HariSekhon/Jenkins) - runs a specific version of Terraform, the usual `fmt`, `validate`, `plan` (saves plan), prompts for plan approval and then runs `apply`. Has full locking and milestones for serialized queueing to avoid state lock failures, and skips intermediate queued runs.
+
+- [GitHub Actions](https://github.com/HariSekhon/GitHub-Actions) - same as above, plus posts the plan into Pull Requests along with the status of `fmt`, `validate`, and applies once PR is merged to the default branch or master or main.
+
 ## Related Repositories
 
 - [Kubernetes configs](https://github.com/HariSekhon/Kubernetes-configs) - Kubernetes YAML configs - Best Practices, Tips & Tricks are baked right into the templates for future deployments
