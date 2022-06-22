@@ -95,9 +95,19 @@ Example:
 
 Production-grade Terraform CI/CD pipelines can be found for Jenkins and GitHub Actions in my adjacent repos:
 
-- [Jenkins](https://github.com/HariSekhon/Jenkins) - runs a specific version of Terraform, the usual `fmt`, `validate`, `plan` (saves plan), prompts for plan approval and then runs `apply`. Has full locking and milestones for serialized queueing to avoid state lock failures, and skips intermediate queued runs.
+- [Jenkins](https://github.com/HariSekhon/Jenkins) - runs terraform code with a specific version of Terraform:
+  - `fmt` (info only)
+  - `validate`
+  - `plan` (saves plan so apply is this exact plan, recommended)
+  - prompts for plan approval
+  - runs `apply`
+  - has full locking and milestones for Plan and Apply stages for serialized queuing to avoid terraform state lock failures
+  - skips intermediate queued runs for efficiency
 
-- [GitHub Actions](https://github.com/HariSekhon/GitHub-Actions) - same as above, plus posts the plan into Pull Requests along with the status of `fmt`, `validate`, and applies once PR is merged to the default branch or master or main.
+- [GitHub Actions](https://github.com/HariSekhon/GitHub-Actions) - similar to above, plus:
+  - optional environment / approvals (protects admin credentials for things like GitHub which don't have read-only creds)
+  - posts the full `terraform plan` result into the Pull Request that triggered the workflow, along with the status of `fmt` & `validate`
+  - applies once Pull Request is merged to the default branch or master or main
 
 ## Related Repositories
 
