@@ -38,6 +38,9 @@ output: cli
 quiet: true
 repo-id: HariSekhon/Terraform  # what to report to Bridgecrew Cloud - without this gets annoying duplicate repos such as 'harisekhon_cli_repo/<myrepo>'
 soft-fail: true
-skip-checks:
+# https://www.checkov.io/5.Policy%20Index/all.html
+skip-check:
+  # Ensure at least two approving reviews for PRs
   - CKV_GIT_5
+  # Ensure all commits GPG signed
   - CKV_GIT_6
