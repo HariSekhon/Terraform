@@ -10,3 +10,7 @@ variable "email" {
 variable "region" {
   type = string
 }
+variable "threshold_percent" {
+  type    = number
+  default = 80
+}

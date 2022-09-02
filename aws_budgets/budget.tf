@@ -25,7 +25,7 @@ resource "aws_budgets_budget" "aws-charges" {
 
   notification {
     comparison_operator       = "GREATER_THAN"
-    threshold                 = 80
+    threshold                 = var.threshold_percent # eg 80%
     threshold_type            = "PERCENTAGE"
     notification_type         = "FORECASTED"
     subscriber_sns_topic_arns = [data.aws_sns_topic.aws-charges.arn]
@@ -33,7 +33,7 @@ resource "aws_budgets_budget" "aws-charges" {
   }
   notification {
     comparison_operator       = "GREATER_THAN"
-    threshold                 = 80
+    threshold                 = var.threshold_percent
     threshold_type            = "PERCENTAGE"
     notification_type         = "ACTUAL"
     subscriber_sns_topic_arns = [data.aws_sns_topic.aws-charges.arn]
