@@ -95,7 +95,7 @@ resource "aws_ssoadmin_permission_set" "org-admin" {
   instance_arn = local.sso_arn
   #relay_state      = "https://s3.console.aws.amazon.com/s3/home?region=us-east-1#"
   session_duration = "PT12H" # valid duration, default: PT1H
-
+}
 
 resource "aws_ssoadmin_permission_set" "catalog-admin" {
   name         = "AWSServiceCatalogAdminFullAccess"
@@ -219,7 +219,8 @@ data "aws_iam_policy_document" "my-inline-policy-document" {
 }
 
 resource "aws_ssoadmin_permission_set_inline_policy" "my-inline-policy" {
-  inline_policy      = data.aws_iam_policy_document.my-inline-policy-document.json
+  inline_policy = data.aws_iam_policy_document.my-inline-policy-document.json
+  #inline_policy      = file("${path.module}/sso_poweruser_policy.json") # for example to lock out access to Secrets Manager
   instance_arn       = local.sso_arn
   permission_set_arn = aws_ssoadmin_permission_set.my-permset.arn
 }
