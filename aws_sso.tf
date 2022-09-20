@@ -176,8 +176,8 @@ resource "aws_ssoadmin_account_assignment" "admins" {
   principal_id   = data.aws_identitystore_group.my-group.group_id
   principal_type = "GROUP" # should always be group - don't assign things on a per user basis - that is against best practice and maintainability
 
-  target_id = "012347678910" # Required: AWS Account ID
-  #target_type = "AWS_ACCOUNT" # Optional: AWS_ACCOUNT is the only valid value
+  target_id   = "012347678910" # Required: AWS Account ID
+  target_type = "AWS_ACCOUNT"  # Optional: AWS_ACCOUNT is the only valid value, but if you omit this and then later backport eg. using terraform_import_aws_sso_account_assignment.sh in DevOps Bash tools repo, then this missing field will force replacement unless you add it back in
 }
 
 # ==============================
