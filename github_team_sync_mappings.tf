@@ -16,7 +16,7 @@
 #               G i t H u b   T e a m   -   I D P   m a p p i n g
 # ============================================================================ #
 
-# Maps groups from an SSO IDP such as Azure Active Directory to GitHub teams to populate their members
+# Maps groups from an SSO IDP such as Azure Active Directory to GitHub teams to populate their members from the IDP groups
 
 # XXX: data.github_organization_team_sync_groups takes a very long time to run so split this to it's own backend to not
 # 		 run along with all the other github actions as it'll kill CI/CD minutes and waste engineer time waiting for every
