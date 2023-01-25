@@ -18,10 +18,10 @@
 
 locals {
   user_groups = {
-		# XXX: Edit
-    "hari.sekhon@domain.com"    = ["AWSControlTowerAdmins"],
-    "devops2@domain.com"     		= ["AWSControlTowerAdmins"],
-    "devops3@domain.com" 				= ["AWSControlTowerAdmins"],
+    # XXX: Edit
+    "hari.sekhon@domain.com" = ["AWSControlTowerAdmins"],
+    "devops2@domain.com"     = ["AWSControlTowerAdmins"],
+    "devops3@domain.com"     = ["AWSControlTowerAdmins"],
   }
 }
 
