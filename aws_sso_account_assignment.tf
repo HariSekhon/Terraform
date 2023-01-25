@@ -22,11 +22,11 @@ locals {
       "AWSAdministratorAccess",
       "AWSPowerUserAccess",
     ]
-    myproject-aws-auditor                    = ["AWSReadOnlyAccess"]
-    myproject-aws-billing                    = ["Billing"]
-    myproject-aws-data-developers            = ["DataDevelopers"]
-    myproject-aws-developer                  = ["AWSPowerUserAccess"]
-    myproject-aws-users                      = ["AWSReadOnlyAccess"]
+    myproject-aws-auditor         = ["AWSReadOnlyAccess"]
+    myproject-aws-billing         = ["Billing"]
+    myproject-aws-data-developers = ["DataDevelopers"]
+    myproject-aws-developer       = ["AWSPowerUserAccess"]
+    myproject-aws-users           = ["AWSReadOnlyAccess"]
   }
 
   group_permset_map_dev_expanded = flatten([
