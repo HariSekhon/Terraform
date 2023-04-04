@@ -203,6 +203,50 @@ resource "google_compute_firewall" "http-webtrends" {
   ]
 }
 
+# ============================================================================ #
+#                                     G K E
+# ============================================================================ #
+
+# XXX: move this to a GKE module where the var.master_range can be more easily populated
+
+resource "google_compute_firewall" "gke-masters-to-nginx-ingress-validating-webhook" {
+  name          = "gke-masters-to-nginx-ingress-validating-webhook"
+  description   = "GKE masters to NGinx ingress validating webhook"
+  project       = var.project
+  network       = var.network
+  source_ranges = [var.master_range]
+
+  allow {
+    protocol = "tcp"
+    ports    = ["8443"]
+  }
+}
+
+resource "google_compute_firewall" "gke-masters-to-cert-manager" {
+  name          = "gke-masters-to-cert-manager"
+  description   = "GKE masters to Cert Manager pods"
+  project       = var.project
+  network       = var.network
+  source_ranges = [var.master_range]
+
+  allow {
+    protocol = "tcp"
+    ports    = ["10250"]
+  }
+}
+
+resource "google_compute_firewall" "gke-masters-to-kubeseal" {
+  name          = "gke-masters-to-kubeseal"
+  description   = "GKE masters to Sealed Secrets Controller for kubeseal"
+  project       = var.project
+  network       = var.network
+  source_ranges = [var.master_range]
+
+  allow {
+    protocol = "tcp"
+    ports    = ["8080"]
+  }
+}
 
 # ============================================================================ #
 #                                     S S H
