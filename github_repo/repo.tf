@@ -34,6 +34,7 @@ resource "github_repository" "repo" {
   # this module is really just to avoid duplicating all these settings you may want to standardize across all repos without repetition
   allow_auto_merge       = true
   allow_rebase_merge     = false
+  archive_on_destroy     = true # safety net for this issue: https://github.com/argoproj/argo-cd/issues/6013#issuecomment-1554412221
   delete_branch_on_merge = true # clean up branches automatically after merge
   has_downloads          = true
   has_issues             = true
