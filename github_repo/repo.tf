@@ -63,3 +63,7 @@ resource "github_repository" "repo" {
   }
 
 }
+
+data "github_repository" "repo" {
+  full_name = github_repository.repo.full_name
+}

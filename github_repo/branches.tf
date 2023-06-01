@@ -36,7 +36,7 @@ resource "github_branch_default" "main" {
 resource "github_branch_protection" "main" {
   repository_id = github_repository.repo.id
 
-  pattern             = "main"
+  pattern             = data.github_repository.repo.default_branch
   enforce_admins      = false # true prevents Terraform account from updating CODEOWNERS or other files
   allows_deletions    = false
   allows_force_pushes = false

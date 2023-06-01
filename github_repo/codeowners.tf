@@ -24,7 +24,7 @@
 
 resource "github_repository_file" "codeowners" {
   repository = github_repository.repo.name
-  branch     = "main" # or "master"
+  branch     = data.github_repository.repo.default_branch
   file       = ".github/CODEOWNERS"
   # permit codeowners override in module caller using var below instead
   #content       = ".github/ @myorg/devops-team"
