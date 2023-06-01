@@ -17,6 +17,7 @@
 # ============================================================================ #
 
 resource "github_repository_file" "workflow-semgrep" {
+  count               = var.actions_repo ? 0 : 1
   repository          = github_repository.repo.name
   branch              = "main"
   file                = ".github/workflows/semgrep.yaml"
