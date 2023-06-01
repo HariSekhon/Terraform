@@ -33,7 +33,7 @@ resource "github_branch_default" "main" {
   branch     = "main"
 }
 
-resource "github_branch_protection" "main" {
+resource "github_branch_protection" "default_branch" {
   repository_id = github_repository.repo.id
 
   pattern             = data.github_repository.repo.default_branch
