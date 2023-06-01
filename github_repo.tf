@@ -58,4 +58,6 @@ module "repo-NAME" {
   source      = "../modules/github_repo"
   name        = "NAME"
   description = ""
+  # set this to prevent overwriting shared workflows with the client deployed workflows eg. semgrep.yaml
+  #actions_repo = true
 }
