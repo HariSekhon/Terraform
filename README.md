@@ -110,6 +110,21 @@ Production-grade Terraform CI/CD pipelines can be found for Jenkins and GitHub A
   - posts the full `terraform plan` result into the Pull Request that triggered the workflow, along with the status of `fmt` & `validate`
   - applies once Pull Request is merged to the default branch or master or main
 
+### Jenkins screenshots
+
+Applied, ignoring informational fmt check:
+
+![](https://github.com/HariSekhon/Diagrams-as-Code/blob/master/screenshots/terraform_applied_but_failed_fmt_check.png)
+
+Plan found no changes so skipped Apply or asking for Approval:
+
+![](https://github.com/HariSekhon/Diagrams-as-Code/blob/master/screenshots/terraform_plan_no_changes.png)
+
+Plan found changes but Approval was not authorized, so Apply did not proceed:
+
+![](https://github.com/HariSekhon/Diagrams-as-Code/blob/master/screenshots/terraform_not_approved.png)
+
+
 ## Related Repositories
 
 - [Kubernetes configs](https://github.com/HariSekhon/Kubernetes-configs) - Kubernetes YAML configs - Best Practices, Tips & Tricks are baked right into the templates for future deployments
