@@ -45,7 +45,7 @@ include "root" {
 # ============================================================================ #
 
 terraform {
-	# source your remote module with a couple variables, so you can reuse the code with only this tiny stub
+  # source your remote module with a couple variables, so you can reuse the code with only this tiny stub
   source =
     # the double slash before //app denotes a sub-directory relative to the root of the package:
     #
@@ -78,7 +78,12 @@ provider "aws" {
 EOF
 }
 
+# automatically generates buckets and DynamoDB table for locking
+# - use 'generate' instead of 'remote_state' if you don't want this automated management of remote state resources
 remote_state {
+  # use this to disable generating the backend resources in CI/CD for validate-all checks
+  # if TERRAGRUNT_DISABLE_INIT is set to any value other than "false"
+  #disable_init = tobool(get_env("TERRAGRUNT_DISABLE_INIT", "false"))
   backend = "s3"
   # generate a backend.tf file with this config below
   generate = {
@@ -86,13 +91,30 @@ remote_state {
     if_exists = "overwrite_terragrunt"
   }
   config = {
+    # creates the S3 bucket if not exists, with versioning enabled, server-side encryption and access logging
+    #         or GCS bucket if not exists, with versioning enabled
+    #
+    #   https://terragrunt.gruntwork.io/docs/features/keep-your-remote-state-configuration-dry/
+    #
     bucket = "my-terraform-state"
 
     # will expand to the path of the including terragrunt.hcl file in a sub-directory
     key = "${path_relative_to_include()}/terraform.tfstate"
     region         = "us-east-1"
     encrypt        = true
+    # creates the DynamoDB table if not exists, with LockID primary key
     dynamodb_table = "my-lock-table"
+
+    # GCS settings:
+    #skip_bucket_versioning = false
+    #enable_bucket_policy_only = true  # enforce uniform-level access
+    #encryption_key = "GOOGLE_ENCRYPTION_KEY"
+
+    #disable_bucket_update = false  # do not update the bucket settings to match here
+
+    # to control usage of S3 compatible object stores, see
+    #
+    #   https://terragrunt.gruntwork.io/docs/features/keep-your-remote-state-configuration-dry/#s3-specific-remote-state-settings
   }
 }
 
