@@ -17,17 +17,83 @@
 #                              T e r r a g r u n t
 # ============================================================================ #
 
+# You can also create a customized Terragrunt scaffold boilerplate terragrunt.hcl template like so:
+#
+#   terragrunt scaffold <module>
+#
+# eg.
+#
+#   terragrunt scaffold github.com/gruntwork-io/terragrunt-infrastructure-modules-example//modules/mysql
+#
+# XXX: Beware this will overwrite without warning any terragrunt.hcl file in the current directory
+#
+# It will find the latest tag release and create a tagged source entry and the inputs{} entries for the specific module
+
 terraform {
   # avoid having to remember to provide -var-file=... args every time to Terraform by specifying them like so
   extra_arguments "common_vars" {
     #commands = ["plan", "apply"]
     commands = get_terraform_commands_that_need_vars()
-
     arguments = [
       # must use get_terragrunt_dir() because it executes in a temporary directory which will break relative paths, while absolute paths are not portable to other machines eg. colleagues or CI/CD systems
       "-var-file=${get_terragrunt_dir()}/../first.tfvars",
-      "-var-file=${get_terragrunt_dir()}/../another.tfvars"
+      "-var-file=${get_terragrunt_dir()}/../another.tfvars",
+      # cannot contain whitespace, if you need whitespace separated arguments split them
+      "-var", "bucket=example.bucket.name"
     ]
+  }
+  extra_arguments "retry_lock" {
+    commands = get_terraform_commands_that_need_locking()
+    arguments = [
+      # keep retrying to acquire lock for 20 minutes to avoid unnecessary CI/CD failures
+      #
+      # you could also just disableConcurrentBuilds() in Jenkins eg.
+      #
+      #     https://github.com/HariSekhon/Jenkins/blob/master/vars/terraformPipeline.groovy
+      #        OR
+      #     https://github.com/HariSekhon/Jenkins/blob/master/vars/terragruntPipeline.groovy
+      #
+      "-lock-timeout=20m"
+    ]
+  }
+  extra_arguments "conditional_vars" {
+    commands = [
+      "apply",
+      "import",
+      "plan",
+      "push",
+      "refresh"
+    ]
+
+    # fails if this file isn't found
+    required_var_files = [
+      "${get_parent_terragrunt_dir()}/terraform.tfvars"
+    ]
+
+    # ignores if these files aren't found
+    optional_var_files = [
+      "${get_parent_terragrunt_dir()}/${get_env("TF_VAR_env", "dev")}.tfvars",
+      "${get_parent_terragrunt_dir()}/${get_env("TF_VAR_region", "eu-west-2")}.tfvars",
+      "${get_terragrunt_dir()}/${get_env("TF_VAR_env", "dev")}.tfvars",
+      "${get_terragrunt_dir()}/${get_env("TF_VAR_region", "eu-west-2")}.tfvars"
+    ]
+  }
+
+  # https://terragrunt.gruntwork.io/docs/features/hooks/
+  #
+  # can have multiple before_hook or after_hook or different names, they'll execute in the order given
+  before_hook "before_hook" {
+    commands     = ["apply", "plan"]
+    execute      = ["tflint"]
+  }
+  before_hook "before_hook2" {
+    commands     = ["apply", "plan"]
+    execute      = ["echo", "Running Terraform"]
+  }
+  after_hook "after_hook" {
+    commands     = ["apply", "plan"]
+    execute      = ["echo", "Finished running Terraform"]  # outputs regardless of whether Terraform fails
+    run_on_error = true
   }
 }
 
@@ -118,7 +184,8 @@ remote_state {
   }
 }
 
-# variables to pass to the module
+# variables to pass to the module, same as TF_VAR_<name>
+# TF_VAR_* takes precedence over these inputs
 inputs = {
   name = "my-vpc"
   cidr = "10.0.0.0/16"
@@ -134,4 +201,53 @@ inputs = {
     Terraform = "true"
     Environment = "dev"
   }
+
+  # can compose variables eg.
+  x = 2
+  y = 40
+  answer = local.x + local.y
+
+  # use variables from another config file
+  common_vars = yamldecode(file(find_in_parent_folders("common_vars.yaml")))
+  region      = local.common_vars.region
+  # or HCL - this is more expensive due to full parse of HCL file and potentially expensive computation in it via run_cmd()
+  computed_vars = read_terragrunt_config(find_in_parent_folders("computed.hcl"))
+}
+
+# specify module dependencies of the backend-app
+dependencies {
+  paths = ["../vpc", "../mysql", "../redis"]
+}
+# specify module dependencies of the frontend-app
+
+# this is to get outputs from this module
+dependency "vpc" {
+  config_path = "../vpc"
+  # if the dependent module hasn't been applied yet, just pass these mock outputs instead of erroring out
+  #mock_outputs = {
+  #  vpc_id = "temporary-dummy-id"
+  #  network_cidr = "10.0.0.0/16"
+  #}
+  # only use above mocks for the validate command
+  #mock_outputs_allowed_terraform_commands = ["validate"]
+}
+
+# and use them here
+inputs {
+  vpc_id = dependency.vpc.outputs.vpc_id
+  cidr = dependency.vpc.outputs.network_cidr
+}
+
+# get outputs from multiple modules
+dependency "mysql" {
+  config_path = "../mysql"
+}
+
+dependency "redis" {
+  config_path = "../redis"
+}
+
+inputs = {
+  mysql_url = dependency.mysql.outputs.domain
+  redis_url = dependency.redis.outputs.domain
 }
