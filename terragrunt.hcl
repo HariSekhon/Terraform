@@ -95,6 +95,12 @@ terraform {
     execute      = ["echo", "Finished running Terraform"]  # outputs regardless of whether Terraform fails
     run_on_error = true
   }
+  retryable_errors = [
+    "(?s).*Error installing provider.*tcp.*connection reset by peer.*",
+    "(?s).*ssh_exchange_identification.*Connection closed by remote host.*"
+  ]
+  retry_max_attempts = 5         # default: 3
+  retry_sleep_interval_sec = 30  # default: 5
 }
 
 # source the provider or backend config from a parent directory's terragrunt.hcl:
