@@ -29,7 +29,24 @@
 #
 # It will find the latest tag release and create a tagged source entry and the inputs{} entries for the specific module
 
+# Terragrunt finds the path to this terragrunt.hcl config file via this order of precedence:
+#
+#   --terragrunt-config
+#   $TERRAGRUNT_CONFIG
+#   $PWD
+
 terraform {
+
+  # source your remote module with a couple variables, so you can reuse the code with only this tiny stub
+  #
+  # the double slash before //app denotes a sub-directory relative to the root of the package:
+  #
+  #   https://developer.hashicorp.com/terraform/language/modules/sources#modules-in-package-sub-directories
+  #
+  source = "github.com:HariSekhon/Terraform.git//app?ref=v0.0.1"
+  # tfr:/// == tfr://registry.terraform.io/
+  #source = "tfr:///terraform-aws-modules/vpc/aws?version=3.5.0"
+
   # avoid having to remember to provide -var-file=... args every time to Terraform by specifying them like so
   extra_arguments "common_vars" {
     #commands = ["plan", "apply"]
@@ -108,23 +125,9 @@ include "root" {
   path = find_in_parent_folders()
 }
 
-# Terragrunt finds the path to its config file via this order of precedence:
-#
-#   --terragrunt-config
-#   $TERRAGRUNT_CONFIG
-#   $PWD
-
 # ============================================================================ #
 
-terraform {
-  # source your remote module with a couple variables, so you can reuse the code with only this tiny stub
-  source =
-    # the double slash before //app denotes a sub-directory relative to the root of the package:
-    #
-    #   https://developer.hashicorp.com/terraform/language/modules/sources#modules-in-package-sub-directories
-    #
-    "github.com:HariSekhon/Terraform.git//app?ref=v0.0.1"
-}
+
 # each input becomes an 'export TF_VAR_...' environment variable passed to Terraform
 inputs = {
   instance_count = 10
@@ -132,12 +135,6 @@ inputs = {
 }
 
 # ============================================================================ #
-
-# tfr:/// == tfr://registry.terraform.io/
-
-terraform {
-  source = "tfr:///terraform-aws-modules/vpc/aws?version=3.5.0"
-}
 
 # generate a provider.tf file with the below contents
 generate "provider" {
