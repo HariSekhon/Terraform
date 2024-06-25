@@ -52,7 +52,8 @@ terraform {
     #commands = ["plan", "apply"]
     commands = get_terraform_commands_that_need_vars()
     arguments = [
-      # must use get_terragrunt_dir() because it executes in a temporary directory which will break relative paths, while absolute paths are not portable to other machines eg. colleagues or CI/CD systems
+      # must use get_terragrunt_dir() because it executes in a temporary directory which will break relative paths,
+      # while absolute paths are not portable to other machines eg. colleagues machines or CI/CD systems
       "-var-file=${get_terragrunt_dir()}/../first.tfvars",
       "-var-file=${get_terragrunt_dir()}/../another.tfvars",
       # cannot contain whitespace, if you need whitespace separated arguments split them
@@ -63,14 +64,14 @@ terraform {
     commands = get_terraform_commands_that_need_locking()
     arguments = [
       # keep retrying to acquire lock for 20 minutes to avoid unnecessary CI/CD failures
-      #
+      "-lock-timeout=20m"
+
       # you could also just disableConcurrentBuilds() in Jenkins eg.
       #
       #     https://github.com/HariSekhon/Jenkins/blob/master/vars/terraformPipeline.groovy
       #        OR
       #     https://github.com/HariSekhon/Jenkins/blob/master/vars/terragruntPipeline.groovy
       #
-      "-lock-timeout=20m"
     ]
   }
   extra_arguments "conditional_vars" {
