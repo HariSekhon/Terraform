@@ -31,8 +31,7 @@ Terraform templates for AWS / GCP / Azure.
 
 Forked from the [Templates](https://github.com/HariSekhon/Templates) repo for which this is now a submodule.
 
-
-### New
+## New
 
 `new.pl` can instantiate these templates as new date-timestamped files, autopopulating the date, vim tags, GitHub URL and other headers and drops you in to your `$EDITOR` of choice (eg. `vim`).
 
@@ -54,13 +53,14 @@ new backend.tf
 
 (done automatically in the [DevOps Bash tools](https://github.com/HariSekhon/DevOps-Bash-tools) repo `.bash.d/`)
 
-
-#### New Terraform Structure
+### New Terraform Structure
 
 ```bash
 new terraform
 ```
-or shorter
+
+or shorter:
+
 ```bash
 new tf
 ```
@@ -78,7 +78,7 @@ all heavily commented to get a new Terraform environment up and running quickly 
 
 ## Troubleshooting
 
-#### DeleteConflict: Recreating Resources with Dependencies That Do Not Permit Deletion
+### DeleteConflict: Recreating Resources with Dependencies That Do Not Permit Deletion
 
 Example:
 `│Error: error deleting IAM policy arn:aws:iam::***:policy/MYPOLICY: DeleteConflict: Cannot delete a policy attached to entities.`
