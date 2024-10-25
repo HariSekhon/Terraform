@@ -126,9 +126,9 @@ Plan found changes but Approval was not authorized, so Apply did not proceed:
 
 ![](https://github.com/HariSekhon/Diagrams-as-Code/blob/master/screenshots/terraform_not_approved.png)
 
-## Stargazers over time
+## Star History
 
-[![Stargazers over time](https://starchart.cc/HariSekhon/Terraform.svg)](https://starchart.cc/HariSekhon/Terraform)
+[![Star History Chart](https://api.star-history.com/svg?repos=HariSekhon/Terraform&type=Date)](https://star-history.com/#HariSekhon/Terraform&Date)
 
 [git.io/tf-templates](https://git.io/tf-templates)
 
