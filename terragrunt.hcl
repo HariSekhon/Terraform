@@ -151,10 +151,10 @@ include "root" {
 
 
 # each input becomes an 'export TF_VAR_...' environment variable passed to Terraform
-inputs = {
-  instance_count = 10
-  instance_type  = "m4.large"
-}
+#inputs = {
+#  instance_count = 10
+#  instance_type  = "m4.large"
+#}
 
 # ============================================================================ #
 
@@ -258,10 +258,10 @@ dependency "vpc" {
 }
 
 # and use them here
-inputs {
-  vpc_id = dependency.vpc.outputs.vpc_id
-  cidr = dependency.vpc.outputs.network_cidr
-}
+#inputs {
+#  vpc_id = dependency.vpc.outputs.vpc_id
+#  cidr = dependency.vpc.outputs.network_cidr
+#}
 
 # get outputs from multiple modules
 dependency "mysql" {
@@ -272,7 +272,7 @@ dependency "redis" {
   config_path = "../redis"
 }
 
-inputs = {
-  mysql_url = dependency.mysql.outputs.domain
-  redis_url = dependency.redis.outputs.domain
-}
+#inputs = {
+#  mysql_url = dependency.mysql.outputs.domain
+#  redis_url = dependency.redis.outputs.domain
+#}
